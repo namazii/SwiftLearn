@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "text": "How cheto tam",
+  "code": "var a: Int? = 6\n let b = a!",
+  "type": "single",
+  "answers": [
+    {
+      "id": 1,
+      "status": false,
+      "text": "nil coalescing"
+    },
+    {
+      "id": 2,
+      "status": false,
+      "text": "optianal binding"
+    },
+    {
+      "id": 3,
+      "status": true,
+      "text": "force unwrapping"
+    },
+    {
+      "id": 4,
+      "status": false,
+      "text": "optional chaining"
+    }
+  ]
+}
