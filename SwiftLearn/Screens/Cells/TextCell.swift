@@ -16,6 +16,7 @@ class TextCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -27,7 +28,7 @@ class TextCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        prepareForReuse()
+        //prepareForReuse()
         setupViews()
         setupConstraints()
     }
@@ -38,6 +39,7 @@ class TextCell: UITableViewCell {
     
     func configure(_ text: String) {
         questionTextLabel.text = text
+        contentView.layoutIfNeeded()
     }
     
     private func setupViews() {
@@ -46,7 +48,9 @@ class TextCell: UITableViewCell {
     
     private func setupConstraints() {
         questionTextLabel.snp.makeConstraints { make in
-            make.left.right.top.equalTo(contentView).inset(20)
+            make.top.bottom.left.right.equalTo(contentView).inset(20)
         }
+        
+        //questionTextLabel.pinEdgesToSuperView()
     }
 }

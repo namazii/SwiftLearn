@@ -7,49 +7,39 @@
 
 import UIKit
 
-enum SectionsCellType: Int, CaseIterable {
-    
-    case question
-    case answers
-    case buttonAnswer
-}
+/*
+ Sections {
+ question {
+ text
+ code
+ }
+ answers: [answers]
+ 
+ button
+ }
+ 
+ */
 
-enum QuestionCellType: Int, CaseIterable {
-    
-    case text
-    case code
-    case answer
+enum SectionType: Int, CaseIterable {
+    case question = 0
+    case answers
     case button
 }
 
-struct ModelTest {
-    var id = 1
-    var text = "How cheto tam"
-    var code = "var? = 6"
-    var type = "Single"
-//    var anwers = [Model1]()
+enum QuestionType: Int, CaseIterable {
+    case text = 0
+    case code
 }
 
-//struct Model1 {
-//    var id = 1
-//    var status = false
-//    var text = "False"
-//}
-
-//struct model2 {
-//    var id = 2
-//    var status = true
-//    var text = "TRUE"
-//}
-
-class QuestionVC: UIViewController {
+final class QuestionVC: UIViewController {
     
     //MARK: Properties
-    
-    var localQuestionsData: QuestionsJSON!
+    var question: QuestionsJSON!
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 60
         
         tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.identifier)
         tableView.register(CodeCell.self, forCellReuseIdentifier: CodeCell.identifier)
@@ -61,19 +51,21 @@ class QuestionVC: UIViewController {
         
         return tableView
     }()
-
-    //MARK: LifeCycle
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        loadLocalJSON()
+        
+        fetchQuestions()
+        tableView.reloadData()
         
     }
     
-    private func loadLocalJSON() {
-        if let localData = DataManager.shared.readLocalFile(forName: "data") {
-            let questions = DataManager.shared.pars(jsonData: localData)!
-            localQuestionsData = questions
+    private func fetchQuestions() {
+        if let questionsData = NetworkManager.shared.readLocalFile(forName: "data") {
+            let questions = NetworkManager.shared.pars(jsonData: questionsData)!
+            question = questions
         }
     }
     
@@ -83,90 +75,99 @@ class QuestionVC: UIViewController {
         view.addSubview(tableView)
         tableView.pinEdgesToSuperView()
     }
-
+    
 }
 
 //MARK: UITableViewExtension
 extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return SectionsCellType.allCases.count
+        return SectionType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return QuestionCellType.allCases.count
-//        let cellType = SectionsCellType(rawValue: section)
-//
-//        switch cellType {
-//
-//        case .question:
-//            return 1
-//        case .answers:
-//            return 4
-//        case .buttonAnswer:
-//            return 1
-//
-//        default: return 0
-//        }
-        switch(section) {
-        case 0:
-            return 1
-        case 1:
-            return 4
-        case 3:
-            return 1
-        default:
-            return 0
+        
+        //return 1
+        
+        if let sectionType = SectionType.init(rawValue: section) {
+            
+            switch sectionType {
+            case .question: return 2
+            case .answers: return question.answers.count
+            case .button: return 1
+            }
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let cellType = QuestionCellType(rawValue: indexPath.row)
-        
-        switch cellType {
-        case .text:
-            return CGFloat(100)
-        case .code:
-            return CGFloat(100)
-        case .answer:
-            return CGFloat(100)
-        case .button:
-            return CGFloat(100)
+        if let sectionType = SectionType.init(rawValue: indexPath.section) {
             
-        default: return UITableView.automaticDimension
+            switch sectionType {
+                
+            case .question:
+                
+                if let questionType = QuestionType.init(rawValue: indexPath.row) {
+                    
+                    switch questionType {
+                    case .text:
+                        return question.text.isEmpty ? 0 : UITableView.automaticDimension
+                        
+                    case .code:
+                        return question.code.isEmpty ? 0 : UITableView.automaticDimension
+                    }
+                }
+                
+            case .answers:
+                print(UITableView.automaticDimension)
+                return UITableView.automaticDimension
+            case .button:
+                return 100
+            }
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.identifier, for: indexPath) as? TextCell else { return UITableViewCell() }
-            
-        let cellType = QuestionCellType(rawValue: indexPath.row)
         
-        switch cellType {
-        case .text:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.identifier, for: indexPath) as? TextCell else { return UITableViewCell() }
-            cell.configure(localQuestionsData.text)
-            return cell
-        case .code:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CodeCell.identifier, for: indexPath) as? CodeCell else { return UITableViewCell() }
-            cell.configure(localQuestionsData.code)
-            return cell
-        case .answer:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AnswerCell.identifier, for: indexPath) as? AnswerCell else { return UITableViewCell() }
-            cell.configure(localQuestionsData.answers.first!.text)
-            return cell
-        case .button:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.identifier, for: indexPath) as? ButtonCell else { return UITableViewCell() }
-            cell.configure("ButtonPress")
-            return cell
+        if let sectionType = SectionType.init(rawValue: indexPath.section) {
             
-        default: return UITableViewCell()
+            switch sectionType {
+                
+            case .question:
+                
+                if let questionType = QuestionType.init(rawValue: indexPath.row) {
+                    
+                    switch questionType {
+                    case .text:
+                        guard let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.identifier, for: indexPath) as? TextCell else { return UITableViewCell() }
+                        cell.configure(question.text)
+                        return cell
+                    case .code:
+                        guard let cell = tableView.dequeueReusableCell(withIdentifier: CodeCell.identifier, for: indexPath) as? CodeCell else { return UITableViewCell() }
+                        cell.configure(question.code)
+                        return cell
+                    }
+                }
+                
+            case .answers:
+                
+                let answer = question.answers[indexPath.row]
+                
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AnswerCell.identifier, for: indexPath) as? AnswerCell else { return UITableViewCell() }
+                cell.configure(answer.text)
+                return cell
+                
+            case .button:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.identifier, for: indexPath) as? ButtonCell else { return UITableViewCell() }
+                cell.configure("ButtonPress")
+                return cell
+            }
         }
-//        cell.configure("How chtoto tam")
-//        return cell
+        
+        return UITableViewCell()
     }
-    
     
 }
