@@ -7,9 +7,9 @@
 
 import Foundation
 
-class DataManager {
+class NetworkManager {
     
-    static let shared = DataManager()
+    static let shared = NetworkManager()
      
     private init() {}
     

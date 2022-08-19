@@ -1,6 +1,6 @@
 {
   "id": 1,
-  "text": "How cheto tam",
+  "text": "How work?",
   "code": "var a: Int? = 6\n let b = a!",
   "type": "single",
   "answers": [
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "status": false,
-      "text": "optianal binding"
+      "text": "optional binding"
     },
     {
       "id": 3,

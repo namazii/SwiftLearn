@@ -27,7 +27,7 @@ class CodeCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        prepareForReuse()
+        //prepareForReuse()
         setupViews()
         setupConstraints()
     }
@@ -45,8 +45,9 @@ class CodeCell: UITableViewCell {
     }
     
     private func setupConstraints() {
+        
         codeLabel.snp.makeConstraints { make in
-            make.left.right.top.equalTo(contentView).inset(20)
+            make.top.bottom.left.right.equalTo(contentView).inset(20)
         }
     }
 
