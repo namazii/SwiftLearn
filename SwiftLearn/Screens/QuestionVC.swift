@@ -33,7 +33,7 @@ enum QuestionType: Int, CaseIterable {
 
 final class QuestionVC: UIViewController {
     
-    //MARK: Properties
+    //MARK: - Properties
     var question: QuestionsJSON!
     var questions: [QuestionsJSON] = []
     
@@ -41,7 +41,7 @@ final class QuestionVC: UIViewController {
         let tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
-        tableView.allowsMultipleSelection  = true
+        tableView.allowsMultipleSelection = true
         
         tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.identifier)
         tableView.register(CodeCell.self, forCellReuseIdentifier: CodeCell.identifier)
@@ -71,7 +71,7 @@ final class QuestionVC: UIViewController {
         }
     }
     
-    //MARK: PrivateMethods
+    //MARK: - PrivateMethods
     private func setupViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
@@ -80,7 +80,7 @@ final class QuestionVC: UIViewController {
     
 }
 
-//MARK: UITableViewExtension
+//MARK: - UITableViewExtension
 extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -106,6 +106,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     
+    //MARK: - HeightForRowAt
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if let sectionType = SectionType.init(rawValue: indexPath.section) {
@@ -135,6 +136,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     
+    //MARK: - CellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
@@ -143,8 +145,13 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
             switch sectionType {
                 
             case .question:
-                
                 if let questionType = QuestionType.init(rawValue: indexPath.row) {
+                    let questionMultipleSelection = question.type
+                    if questionMultipleSelection == "single" {
+                        tableView.allowsMultipleSelection  = false
+                    } else {
+                        tableView.allowsMultipleSelection  = true
+                    }
                     
                     switch questionType {
                     case .text:
@@ -165,7 +172,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                 let answer = question.answers[indexPath.row]
                 
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AnswerCell.identifier, for: indexPath) as? AnswerCell else { return UITableViewCell() }
-                cell.configure(answer.text, <#T##Bool#>)
+                cell.configure(answer.text)
                 cell.selectionStyle = .none
                 return cell
                 

@@ -59,9 +59,8 @@ class AnswerCell: UITableViewCell {
         }
     }
     
-    func configure(_ text: String, _ type: String) {
+    func configure(_ text: String) {
         answerLabel.text = text
-        let
 //        answerResult = result
 //        checkMark.image = UIImage(named: "checkOff")
     }
