@@ -12,6 +12,9 @@ class AnswerCell: UITableViewCell {
 
     static let identifier = "AnswerCell"
     
+    private var answerResult = false
+    private var answerType = ""
+    
     lazy var answerLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -20,17 +23,17 @@ class AnswerCell: UITableViewCell {
         return label
     }()
     
-    lazy var checkLabel: UILabel = {
-        let label = UILabel()
+    lazy var checkMark: UIImageView = {
+        let image = UIImageView()
         
-        return label
+        return image
     }()
     
     //MARK: - Lifecycle
-    override func prepareForReuse() {
-        answerLabel.text = nil
-        checkLabel.text = nil
-    }
+//    override func prepareForReuse() {
+//        answerLabel.text = nil
+//        checkMark.image = nil
+//    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,27 +46,45 @@ class AnswerCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ text: String) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+//        contentView.animateViewPress(checkMark)
+//        contentView.animateViewPress(answerLabel)
+        if (selected) {
+            contentView.animateViewPress(self)
+            checkMark.image = UIImage(named: "checkOn")
+        } else {
+            contentView.animateViewPress(checkMark)
+            checkMark.image = UIImage(named: "checkOff")
+        }
+    }
+    
+    func configure(_ text: String, _ type: String) {
         answerLabel.text = text
-        checkLabel.text = "❐"
+        let
+//        answerResult = result
+//        checkMark.image = UIImage(named: "checkOff")
     }
     
     private func setupViews() {
         contentView.addSubview(answerLabel)
-        contentView.addSubview(checkLabel)
+        contentView.addSubview(checkMark)
     }
     
     private func setupConstraints() {
         
-        answerLabel.snp.makeConstraints { make in
+        checkMark.snp.makeConstraints { make in
             make.left.top.bottom.equalTo(contentView).inset(20)
-            make.right.lessThanOrEqualTo(checkLabel.snp.left)
+        }
+        
+        answerLabel.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(20)
+            make.left.equalTo(checkMark.snp.right).inset(-20)
+            make.right.lessThanOrEqualTo(contentView)
             
         }
         
-        checkLabel.snp.makeConstraints { make in
-            make.right.top.bottom.equalTo(contentView).inset(20)
-        }
+        
     }
 
 }

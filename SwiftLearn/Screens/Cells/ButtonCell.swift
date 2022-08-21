@@ -13,9 +13,11 @@ class ButtonCell: UITableViewCell {
     
     lazy var answerButton: UIButton = {
         let button = UIButton()
+        
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
-        button.setTitle("Проверить", for: .normal)
+        button.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
+        
         return button
     }()
     
@@ -27,12 +29,19 @@ class ButtonCell: UITableViewCell {
         setupConstraints()
     }
     
+    @objc func buttonPress(_ sender: UIButton) {
+        print("press")
+        self.animateViewPress(sender)
+        answerButton.setTitle("Следующий", for: .normal)
+
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func configure(_ text: String) {
-        answerButton.setTitle(text, for: .normal)
+        answerButton.setTitle("Проверить", for: .normal)
     }
     
     private func setupViews() {
