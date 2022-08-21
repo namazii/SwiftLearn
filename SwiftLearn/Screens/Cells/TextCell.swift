@@ -31,6 +31,7 @@ class TextCell: UITableViewCell {
         //prepareForReuse()
         setupViews()
         setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {

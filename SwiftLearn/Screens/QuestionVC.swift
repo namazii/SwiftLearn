@@ -35,11 +35,13 @@ final class QuestionVC: UIViewController {
     
     //MARK: Properties
     var question: QuestionsJSON!
+    var questions: [QuestionsJSON] = []
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
+        tableView.allowsMultipleSelection  = true
         
         tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.identifier)
         tableView.register(CodeCell.self, forCellReuseIdentifier: CodeCell.identifier)
@@ -80,6 +82,10 @@ final class QuestionVC: UIViewController {
 
 //MARK: UITableViewExtension
 extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.allCases.count
@@ -144,10 +150,12 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                     case .text:
                         guard let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.identifier, for: indexPath) as? TextCell else { return UITableViewCell() }
                         cell.configure(question.text)
+                        cell.selectionStyle = .none
                         return cell
                     case .code:
                         guard let cell = tableView.dequeueReusableCell(withIdentifier: CodeCell.identifier, for: indexPath) as? CodeCell else { return UITableViewCell() }
                         cell.configure(question.code)
+                        cell.selectionStyle = .none
                         return cell
                     }
                 }
@@ -157,12 +165,14 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                 let answer = question.answers[indexPath.row]
                 
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AnswerCell.identifier, for: indexPath) as? AnswerCell else { return UITableViewCell() }
-                cell.configure(answer.text)
+                cell.configure(answer.text, <#T##Bool#>)
+                cell.selectionStyle = .none
                 return cell
                 
             case .button:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.identifier, for: indexPath) as? ButtonCell else { return UITableViewCell() }
                 cell.configure("ButtonPress")
+                cell.selectionStyle = .none
                 return cell
             }
         }
