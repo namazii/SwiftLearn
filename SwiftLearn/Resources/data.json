@@ -1,28 +1,80 @@
 {
-  "id": 1,
-  "text": "How work?",
-  "code": "var a: Int? = 6\n let b = a!",
-  "type": "single",
-  "answers": [
-    {
-      "id": 1,
-      "status": false,
-      "text": "nil coalescing"
-    },
-    {
-      "id": 2,
-      "status": false,
-      "text": "optional binding"
-    },
-    {
-      "id": 3,
-      "status": true,
-      "text": "force unwrapping"
-    },
-    {
-      "id": 4,
-      "status": false,
-      "text": "optional chaining"
-    }
-  ]
+    "topicCount": 4,
+    "items": [
+        {
+            "id": 1,
+            "text": "How work?",
+            "code": "var a: Int? = 6\n let b = a!",
+            "type": "single",
+            "topic": "swift",
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "nil coalescing"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "optional binding"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "force unwrapping"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "optional chaining"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "Команда выполняющая одну или несколько операций",
+            "type": "single",
+            "topic": "theory",
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Выражения"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Переменная"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Предложение"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "Минимальная функциональная единица, выполняющая определенную операцию",
+            "type": "single",
+            "topic": "theory",
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Выражение"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Операнд"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Оператор"
+                }
+            ]
+        }
+    ]
 }

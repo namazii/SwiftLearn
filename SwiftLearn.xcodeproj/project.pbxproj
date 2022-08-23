@@ -27,6 +27,7 @@
 		BC68161628B25650008DCC3C /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68161528B25650008DCC3C /* CategoriesVC.swift */; };
 		BC6D57A228A90D26003DB11E /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = BC6D57A128A90D26003DB11E /* data.json */; };
 		BC77531828AE4DA700AA5695 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77531728AE4DA700AA5695 /* DataManager.swift */; };
+		BC8E488F28B3D2E70027BC7B /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E488E28B3D2E70027BC7B /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		BC68161528B25650008DCC3C /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		BC6D57A128A90D26003DB11E /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		BC77531728AE4DA700AA5695 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BC8E488E28B3D2E70027BC7B /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				BC68161528B25650008DCC3C /* CategoriesVC.swift */,
+				BC8E488E28B3D2E70027BC7B /* CategoryCell.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				BC68161028B10B04008DCC3C /* UIView+AnimateViewPress.swift in Sources */,
 				BC1CE524289E572E00B6EE15 /* CoreData.xcdatamodeld in Sources */,
 				BC128D4B289D688400BCDC08 /* AppDelegate.swift in Sources */,
+				BC8E488F28B3D2E70027BC7B /* CategoryCell.swift in Sources */,
 				BC128D4D289D688400BCDC08 /* SceneDelegate.swift in Sources */,
 				BC26FAA628A5160000CF5D2F /* TextCell.swift in Sources */,
 				BC26FAAC28A518B700CF5D2F /* CodeCell.swift in Sources */,
