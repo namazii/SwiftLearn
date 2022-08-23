@@ -13,7 +13,11 @@ class MenuVC: UIViewController {
     //MARK: - Properties
     lazy var logoLabel: UILabel = {
         let label = UILabel()
+        
         label.text = "SwiftLearn"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 30)
+        label.tintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         
         return label
     }()
@@ -71,7 +75,6 @@ class MenuVC: UIViewController {
         setupConstraints()
     }
     
-    
     //MARK: - PrivateMethods
     private func setupViews() {
         view.backgroundColor = .systemBackground
@@ -118,12 +121,12 @@ class MenuVC: UIViewController {
         switch sender {
         case playButton:
             print("play")
-            let vc = QuestionVC()
+//            let vc = QuestionVC()
+            let vc = CategoriesVC()
             self.navigationController?.pushViewController(vc, animated: true)
         case categoryButton:
             print("categori")
-            let vc = CategoriesVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+            
         default:
             print("history")
         }

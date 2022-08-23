@@ -14,7 +14,8 @@ struct DataManager {
     private init() {}
     
     var questions: [QuestionsJSON] = []
-    
+    var wrongAnswers: [QuestionsJSON] = []
+    var rightanswers: [QuestionsJSON] = []
     
 //    struct QuestionsJSON: Codable {
 //        let id: Int

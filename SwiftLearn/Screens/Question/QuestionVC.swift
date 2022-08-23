@@ -9,7 +9,7 @@ import UIKit
 
 /*
  Sections {
- question {
+ questions {
  text
  code
  }
@@ -34,8 +34,8 @@ enum QuestionType: Int, CaseIterable {
 final class QuestionVC: UIViewController {
     
     //MARK: - Properties
-    var question: QuestionsJSON!
-    var questions: [QuestionsJSON] = []
+    var questions: QuestionsJSON?
+//    var questions: [QuestionsJSON = []
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -59,17 +59,17 @@ final class QuestionVC: UIViewController {
         super.viewDidLoad()
         setupViews()
         
-        fetchQuestions()
+//        fetchQuestions()
         tableView.reloadData()
         
     }
     
-    private func fetchQuestions() {
-        if let questionsData = NetworkManager.shared.readLocalFile(forName: "data") {
-            let questions = NetworkManager.shared.pars(jsonData: questionsData)!
-            question = questions
-        }
-    }
+//    private func fetchQuestions() {
+//        if let questionsData = NetworkManager.shared.readLocalFile(forName: "data") {
+//            let questions = NetworkManager.shared.pars(jsonData: questionsData)
+//            questions = questions
+//        }
+//    }
     
     //MARK: - PrivateMethods
     private func setupViews() {
@@ -94,12 +94,12 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         //return 1
-        
+        guard let question = questions else { return 0 }
         if let sectionType = SectionType.init(rawValue: section) {
             
             switch sectionType {
             case .question: return 2
-            case .answers: return question.answers.count
+            case .answers: return question.items.count
             case .button: return 1
             }
         }
@@ -108,7 +108,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - HeightForRowAt
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+        guard let question = questions else { return 0 }
         if let sectionType = SectionType.init(rawValue: indexPath.section) {
             
             switch sectionType {
@@ -119,10 +119,11 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                     
                     switch questionType {
                     case .text:
-                        return question.text.isEmpty ? 0 : UITableView.automaticDimension
+//                        return question.text.isEmpty ? 0 : UITableView.automaticDimension
+                        return question.items[indexPath.row].text.isEmpty ? 0 : UITableView.automaticDimension
                         
                     case .code:
-                        return question.code.isEmpty ? 0 : UITableView.automaticDimension
+                        return question.items[indexPath.row].code?.isEmpty ?? false ? 0 : UITableView.automaticDimension
                     }
                 }
                 
@@ -139,6 +140,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
     //MARK: - CellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        guard let question = questions else { return UITableViewCell() }
         
         if let sectionType = SectionType.init(rawValue: indexPath.section) {
             
@@ -146,7 +148,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                 
             case .question:
                 if let questionType = QuestionType.init(rawValue: indexPath.row) {
-                    let questionMultipleSelection = question.type
+                    let questionMultipleSelection = question.items[indexPath.row].type
                     if questionMultipleSelection == "single" {
                         tableView.allowsMultipleSelection  = false
                     } else {
@@ -156,12 +158,12 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                     switch questionType {
                     case .text:
                         guard let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.identifier, for: indexPath) as? TextCell else { return UITableViewCell() }
-                        cell.configure(question.text)
+                        cell.configure(question.items[indexPath.row].text)
                         cell.selectionStyle = .none
                         return cell
                     case .code:
                         guard let cell = tableView.dequeueReusableCell(withIdentifier: CodeCell.identifier, for: indexPath) as? CodeCell else { return UITableViewCell() }
-                        cell.configure(question.code)
+                        cell.configure(question.items[indexPath.row].code ?? "")
                         cell.selectionStyle = .none
                         return cell
                     }
@@ -169,7 +171,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                 
             case .answers:
                 
-                let answer = question.answers[indexPath.row]
+                let answer = question.items[indexPath.row].answers[indexPath.row]
                 
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AnswerCell.identifier, for: indexPath) as? AnswerCell else { return UITableViewCell() }
                 cell.configure(answer.text)
