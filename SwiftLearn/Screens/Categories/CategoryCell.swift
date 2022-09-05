@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 
+//filepr enum Russify: String {
+//    case swift = "Swift"
+//    case theory = "Теория"
+//    case optional = "Опционалы"
+//}
+
 class CategoryCell: UICollectionViewCell {
     
-    static let identifier = "CategoryCell"
+    static let reuseID = "CategoryCell"
     
     lazy var categoryImage: UIImageView = {
         let image = UIImageView()
@@ -41,9 +47,22 @@ class CategoryCell: UICollectionViewCell {
     }
     //MARK: - Public
        
-    func configure(_ name: String, _ image: String) {
-        nameLabel.text = name
-        categoryImage.image = UIImage(named: image)
+    override var isSelected: Bool {
+        didSet {
+            animateViewPress(self)
+        }
+    }
+    
+    func configure(_ model: Topic) {
+        switch model.text {
+        case "swift": nameLabel.text = "Swift"
+        case "optional": nameLabel.text = "Опционалы"
+        case "theory": nameLabel.text = "Теория"
+        default:
+            return
+        }
+//        nameLabel.text = model.text
+        categoryImage.image = UIImage(named: model.image)
     }
 
     //MARK: - PrivateMethods

@@ -8,38 +8,35 @@
 import UIKit
 import SnapKit
 
-class MenuVC: UIViewController {
+final class MenuVC: UIViewController {
     
     //MARK: - Properties
     lazy var logoLabel: UILabel = {
         let label = UILabel()
-        
         label.text = "SwiftLearn"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 30)
-        label.tintColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        label.textColor = .systemYellow
         
         return label
     }()
     
     lazy var playButton: UIButton = {
         let button = UIButton()
-        
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
         button.setTitle("Играть", for: .normal)
-        button.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonPressAction), for: .touchUpInside)
         
         return button
     }()
     
     lazy var categoryButton: UIButton = {
         let button = UIButton()
-        
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
         button.setTitle("Категория", for: .normal)
-        button.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonPressAction), for: .touchUpInside)
         
         return button
     }()
@@ -50,7 +47,7 @@ class MenuVC: UIViewController {
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
         button.setTitle("История", for: .normal)
-        button.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonPressAction), for: .touchUpInside)
         
         return button
     }()
@@ -75,7 +72,7 @@ class MenuVC: UIViewController {
         setupConstraints()
     }
     
-    //MARK: - PrivateMethods
+    //MARK: - Private
     private func setupViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(stackViewMain)
@@ -85,8 +82,6 @@ class MenuVC: UIViewController {
         stackViewMain.addArrangedSubview(categoryButton)
         stackViewMain.addArrangedSubview(historyButton)
     }
-
-
     
     private func setupConstraints() {
         playButton.snp.makeConstraints { make in
@@ -115,20 +110,30 @@ class MenuVC: UIViewController {
         }
     }
     
+   
     // MARK: - Navigation
-    @objc private func buttonPress(_ sender: UIButton) {
-        sender.animateViewPress(sender)
+    
+    private func showCategoriesScreen() {
+        let vc = CategoriesVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func showResultScreen() {
+        let vc = ResultVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    // MARK: - Actions
+    @objc private func buttonPressAction(_ sender: UIButton) {
+        
+        view.animateViewPress(sender)
+        
         switch sender {
         case playButton:
-            print("play")
-//            let vc = QuestionVC()
-            let vc = CategoriesVC()
-            self.navigationController?.pushViewController(vc, animated: true)
-        case categoryButton:
-            print("categori")
-            
-        default:
-            print("history")
+            showCategoriesScreen()
+           
+        default: break
         }
     }
 }
