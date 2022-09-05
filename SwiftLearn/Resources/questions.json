@@ -1,0 +1,1298 @@
+{
+    "count": 4,
+    "items": [
+        {
+            "id": 1,
+            "text": "How work?",
+            "code": "var a: Int? = 6\n let b = a!",
+            "type": "single",
+            "image": ["swift", "optional"],
+            "topic": ["swift", "optional"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "nil coalescing"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "optional binding"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "force unwrapping"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "optional chaining"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "Команда выполняющая одну или несколько операций?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Выражения"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Переменная"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Предложение"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "Минимальная функциональная единица, выполняющая определенную операцию?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Выражение"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Операнд"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Оператор"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "Набор символов, зарезервированный языком программирования?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Идентификатор"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Ключевое слово"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Замыкания"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Функция"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "С какой буквы рекомендуется писать имена переменных или констант в Swift?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Со строчной (маленькой)"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "По желанию"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "С заглавной (Большой)"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "text": "Все типы в Swift пишутся с ...",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "С заглавной (Большой)"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Со строчной (маленькой)"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "По желанию"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "text": "Как называется создание нового объекта, с которым планируется взаимодействие?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Инициализация"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Модификация"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Объявление"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "text": "Обязана ли константа или переменная иметь имя?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Да"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Нет"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Только константа"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Только переменная"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "text": "Именованный участок в памяти, в котором хранится некоторое значение?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Библиотека"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Строка"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Переменная или константа"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Структура"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "text": "Как называется объявление переменной или константы с присваиванием ей значения?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Возведение"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Инициализация"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Объявление"
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "text": "Именованный участок памяти, значение которого можно установить только один раз и нельзя изменить в дальнейшем?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Лямбда"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Константа"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Постоянная"
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "text": "Ключевое слово, которое используется для определения константы?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "set"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "var"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "let"
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "text": "В каком случае данные в константе могут перезаписываться?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Только во ViewDidLoad()"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Внутри функции"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Внутри цикла"
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "text": "Какое ключевое слово используется для определения переменной?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "let"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "set"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "func"
+                },
+                {
+                    "id": 4,
+                    "status": true,
+                    "text": "var"
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "text": "Какими должны быть имена переменных?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Универсальными"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Уникальными"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Односложными"
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "text": "Должны ли вы употреблять var и let каждый раз, когда обращаетесь к созданной переменной или константе?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Только let"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Нет"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Да"
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "text": "Множество возможных значений и операций с этими значениями, которые мы присваиваем объекту?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Аргументы"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Тип данных"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Имя"
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "text": "Каждая переменная или константа имеет тип данных. Так ли это?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Нет"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Да"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Только если тип указан явно"
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "text": "Как можно объявлять тип данных?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Явно"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Явно или Неявно"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Неявно"
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "text": "Можете ли вы создать переменную с именем, уже занятым другой переменной (в одной области видимости)?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Нет"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Да"
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "text": "Возможно ли объявить несколько констант в одну строку?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Да, через двоеточие"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Нет, каждая с новой строки"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Да, через обратный слеш"
+                },
+                {
+                    "id": 4,
+                    "status": true,
+                    "text": "Да, через запятую"
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "text": "Разрешит ли Swift инициализировать две переменные таким образом?",
+            "code": "var num1 = 40, num2 = 50",
+            "type": "single",
+            "image": ["swift", "theory"],
+            "topic": ["swift", "theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Да"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Нет"
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "text": "Можем ли мы менять значение переменной?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Да"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Нет"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Да, но только в внутри цикла"
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "text": "Если мы точно уверены, что значение переменной меняться не будет, что нам нужно использовать?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Константу"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Структуру"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Переменную"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Литерал"
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "text": "Как оформляется справочный комментарий?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "// Комментарий"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "/** Комментарий */"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "//MARK: Комментарий"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "// Комментарий"
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "text": "Что мы получим, при попытке запустить этот код?",
+            "code": "var name = \"Eugene\"\nname = 42.3",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Переменная обнуляется"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Ничего не произойдет"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Переменной присваивается число"
+                },
+                {
+                    "id": 4,
+                    "status": true,
+                    "text": "Столкнемся с ошибкой"
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "text": "Являются ли все базовые типы (Int, String, Double, Bool) в Swift хешируемыми?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Все, кроме Bool"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Да"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Все, кроме String"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Нет"
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "text": "Что позволяет создавать и передавать группы значений, и возвращать несколько значений из функций?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Опционал"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Переменная"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Множество"
+                },
+                {
+                    "id": 4,
+                    "status": true,
+                    "text": "Кортеж"
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "text": "Тип, позволяющий работать с отсутствующими значениями?",
+            "type": "single",
+            "image": ["theory", "optional"],
+            "topic": ["theory", "optional"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Тип коллекции"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Тип кортежа"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Опциональный тип"
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "text": "Что не могут содержать имена констант и переменных?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Нижнее подчеркивание"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Пробелы и стрелки"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Unicode-символы"
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "text": "Можем ли мы после объявления константы, дальше по коду изменить ее на переменную",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Да"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Нет"
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "text": "Какая глобальная функция может вывести одно или более значений в консоль?",
+            "type": "single",
+            "image": ["theory","swift"],
+            "topic": ["theory","swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "print(_:separator:terminator:)"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "show()"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Console.WriteLine"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "alert()"
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "text": "Скомпилируется ли данный код?",
+            "code": "//Вариант №1:\nlet message = \"Привет, Мир!\"\n\n//Вариант №2:\ngreetings = \"Привет\"",
+            "type": "single",
+            "image": ["theory","swift"],
+            "topic": ["theory","swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Да"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Нет"
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "text": "Как называется игнорируемый компилятором, неисполняемый текст в коде",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Комментарий"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Примечание"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Исключение"
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "text": "Один случай, когда в Swift необходимо ставить точку с запятой (;) в коде?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "После каждого выражения"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Внутри замыканий"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Несколько выражений на строке"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "После каждого блока"
+                }
+            ]
+        },
+        {
+            "id": 36,
+            "text": "Как мы можем изменить имя существующего типа на более подходящее по контексту?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Это невозможно"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Создать typealias"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Создать копию типа"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Создать контекстное имя"
+                }
+            ]
+        },
+        {
+            "id": 37,
+            "text": "Объекты, доступные в любой точке программы?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Локальные объекты"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Глобальные объекты"
+                }
+            ]
+        },
+        {
+            "id": 38,
+            "text": "Как называется возможность сослаться на свойство динамически, а не напрямую?",
+            "code": "struct Starship {\n        var name: String\n        var maxWarp: Double\n}\nlet voyager = Starship(name:\"Voyager\",\n                                        maxWarp: 9.975)\nlet name = \\Starsship.name\nlet starshipName = voyager[keyPath: name]",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "NamePath"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "KeyPath"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "PropertyURL"
+                }
+            ]
+        },
+        {
+            "id": 39,
+            "text": "В каком варианте указана валидная инициализация коллекции?",
+            "code": "//Вариант №1:\nvar set = Set<String>()\n\n//Вариант №2:\nvar array = Array()",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "В обоих вариантах"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Вариант №2"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Вариант №1"
+                }
+            ]
+        },
+        {
+            "id": 40,
+            "text": "Ключевое слово для подключения модуля к контроллеру",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "add"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "invite"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "func"
+                },
+                {
+                    "id": 4,
+                    "status": true,
+                    "text": "import"
+                }
+            ]
+        },
+        {
+            "id": 41,
+            "text": "Можем ли мы, как и в других языках программирования, использовать операторы декремента (--) и инкремента (++) в Swift?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Нет"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Иногда"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Да"
+                }
+            ]
+        },
+        {
+            "id": 42,
+            "text": "В каком из этих вариантов объявляется новая переменная?",
+            "code": "//Вариант №1:\nmessage = \"Привет, Мир!\"\n\n//Вариант №2:\nvar message = \"Привет\"",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Вариант №1"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Ни в каком"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Вариант №2"
+                }
+            ]
+        },
+        {
+            "id": 43,
+            "text": "Специальный механизм, позволяющий преобразовывать одни типы данных в другие?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Подчинение"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Преобразование"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Приведение"
+                }
+            ]
+        },
+        {
+            "id": 44,
+            "text": "Какой из стандартных типов данных не является сопоставимым (Comparable)?",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Character"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Double"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "Bool"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Int"
+                }
+            ]
+        },
+        {
+            "id": 45,
+            "text": "У каждого отдельного значения в составе этого объекта может быть собственный тип данных, который никак не зависит от других",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Коллекция"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Кортеж"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Массив"
+                }
+            ]
+        },
+        {
+            "id": 46,
+            "text": "Набор элементов, выстроенных в очередь, в котором есть возможность осуществлять последовательный (поочередный) доступ к ним",
+            "type": "single",
+            "image": ["theory"],
+            "topic": ["theory"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Последовательность"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Класс"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Константа"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Очередь"
+                }
+            ]
+        },
+        {
+            "id": 47,
+            "text": "Выберите корректное обозначение типа (аннотацию) для переменной, чтобы обозначить, что переменная может хранить String:",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "var message: Character"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "var welcomeMessage: String"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "let welcome: Bool"
+                }
+            ]
+        },
+        {
+            "id": 48,
+            "text": "В каком из вариантов объявляется новая константа?",
+            "code": "//Вариант №1:\nmessage = \"Привет, Мир!\"\n\n//Вариант №2:\ngreetings = \"Привет\"",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "//Вариант №2"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "//Вариант №1"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Ни в каком"
+                }
+            ]
+        },
+        {
+            "id": 49,
+            "text": "Можем ли подобным образом создавать несколько переменных с явным объявлением одного и того же типа для всех?",
+            "code": "var red, green, blue: Double",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": true,
+                    "text": "Да"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Нет"
+                }
+            ]
+        },
+        {
+            "id": 50,
+            "text": "Получим ли мы значение в консоль, если да, то какое?",
+            "code": "var num1 = 40\nvar num2 = num1\nprint(num2)",
+            "type": "single",
+            "image": ["theory", "swift"],
+            "topic": ["theory", "swift"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "nil"
+                },
+                {
+                    "id": 2,
+                    "status": false,
+                    "text": "Нет, столкнемся с ошибкой"
+                },
+                {
+                    "id": 3,
+                    "status": true,
+                    "text": "40"
+                }
+            ]
+        },{
+            "id": 51,
+            "text": "Какой тип используется, когда значение может отсутствовать?",
+            "type": "single",
+            "image": ["theory", "optional"],
+            "topic": ["theory", "optional"],
+            "answers": [
+                {
+                    "id": 1,
+                    "status": false,
+                    "text": "Кортеж"
+                },
+                {
+                    "id": 2,
+                    "status": true,
+                    "text": "Опциональный"
+                },
+                {
+                    "id": 3,
+                    "status": false,
+                    "text": "Неявный тип"
+                },
+                {
+                    "id": 4,
+                    "status": false,
+                    "text": "Логический Bool"
+                }
+            ]
+        }
+    ]
+}

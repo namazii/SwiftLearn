@@ -8,15 +8,18 @@
 import Foundation
 
 //Бизнес-логика - выдавать вопросы
-final class QuestionService {
+final class QuestionProvider {
     
     private var questionsAPI = QuestionsAPI()
     
-    static let shared = QuestionService()
+    static let shared = QuestionProvider()
     
     var questions: [Question] = []
     
     var currentQuestion: Question?
+    
+    var questionTrue: [Question] = []
+    var questionFalse: [Question] = []
     
     //MARK: - Requests
     func fetchQuestions(_ topic: String) {

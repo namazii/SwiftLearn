@@ -12,7 +12,12 @@ class AnswerCell: UITableViewCell {
 
     static let identifier = "AnswerCell"
     
-    private var answerResult = false
+    
+    private var answerStatus: Bool?  {
+        didSet {
+//            print(answerStatus)
+        }
+    }
     private var answerType = ""
     
     lazy var answerLabel: UILabel = {
@@ -59,11 +64,40 @@ class AnswerCell: UITableViewCell {
         }
     }
     
-    func configure(_ text: String) {
+    //MARK: - Public
+    //Text - текст ответа, statuc - внутренний статус то что вопрос правильных/неправильно, bool - то что нажата кнопка проверить/следующей
+    func configure(_ text: String, _ status: Bool, bool: Bool) {
+        
         answerLabel.text = text
-//        answerResult = result
+        
+        answerStatus = status
+        
+        if bool == true {
+            
+            if status == true {
+                backgroundColor = .systemGreen
+            } else {
+                backgroundColor = .systemRed
+            }
+            
+        } else {
+            backgroundColor = .systemBackground
+        }
 //        checkMark.image = UIImage(named: "checkOff")
     }
+    
+//    func paintCell() {
+////        print("PAINT CELL")
+////        guard let status = answerStatus else { return }
+////        print(answerStatus)
+////        print(status)
+//        if answerStatus {
+//            print("2\(status) !status")
+//            self.backgroundColor = .green
+//        } else {
+//            self.backgroundColor = .red
+//        }
+//    }
     
     private func setupViews() {
         contentView.addSubview(answerLabel)
