@@ -7,9 +7,11 @@
 
 import UIKit
 import SnapKit
+import FirebaseAuth
 
 final class LogVC: UIViewController {
     
+    //MARK: - Properties
     private lazy var logoLabel: UILabel = {
         let label = UILabel()
         label.text = "SwiftLearn"
@@ -49,13 +51,26 @@ final class LogVC: UIViewController {
         return textField
     }()
     
-    private lazy var signUpButton: UIButton = {
+    private lazy var logButton: UIButton = {
         let button = UIButton(type: .system)
         
-        button.setTitle("Регистрация/Вход", for: .normal)
+        button.setTitle("Вход", for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(logButtonAction), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var regButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.setTitle("Регистрация", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(regButtonAction), for: .touchUpInside)
         
         return button
     }()
@@ -70,26 +85,92 @@ final class LogVC: UIViewController {
         return stackView
     }()
 
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
         setConstraints()
+        addTap()
+        
+        Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+            if user != nil {
+                self?.showMenuVC()
+            }
+        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
+    //MARK: - Private
     private func setupViews() {
         view.backgroundColor = .systemBackground
         
-        signUpButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.height / 40)
+        logButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.height / 40)
+        regButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.height / 40)
         
         view.addSubview(logoLabel)
         view.addSubview(stackViewMain)
-        view.addSubview(signUpButton)
+        view.addSubview(logButton)
+        view.addSubview(regButton)
         
         stackViewMain.addArrangedSubview(emailTextField)
         stackViewMain.addArrangedSubview(passwordTextField)
     }
     
+    private func addTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    //MARK: - Actions
+    @objc private func logButtonAction(_ sender: UIButton) {
+        guard let email = emailTextField.text, let password = passwordTextField.text, email != "", password != "" else {
+            showAlert(title: "Данные не корректны", message: "Пожалуйста, введите email и пароль")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
+            if error != nil {
+                self?.showAlert(title: "Ошибка входа", message: "Проверьте корректность введенных данных")
+            }
+            if user != nil {
+                return
+            }
+        }
+    }
+    
+    @objc private func regButtonAction(_ sender: UIButton) {
+        guard let email = emailTextField.text, let password = passwordTextField.text, email != "", password != "" else {
+            showAlert(title: "Данные не корректны", message: "Пожалуйста, введите email и пароль")
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] user, error in
+            if error != nil {
+                self?.showAlert(title: "Ошибка регистрации", message: "Длина пароля должна быть от 6 символов\n Проверьте корректность email\n Возможно данный пользователь уже существует")
+            }
+        }
+    }
+    
+    @objc private func hideKeyBoard() {
+        view.endEditing(true)
+    }
+    
+    // MARK: - Navigation
+    
+    private func showMenuVC() {
+        let vc = MenuVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //MARK: - Constraints
     private func setConstraints() {
         logoLabel.snp.makeConstraints { make in
             make.bottom.equalTo(stackViewMain.snp.top).offset(-20)
@@ -104,9 +185,16 @@ final class LogVC: UIViewController {
             make.width.equalTo(view.snp.width).multipliedBy(0.7)
         }
         
-        signUpButton.snp.makeConstraints { make in
+        logButton.snp.makeConstraints { make in
             make.centerX.equalTo(view)
             make.top.equalTo(stackViewMain.snp.bottom).offset(20)
+            make.width.equalTo(stackViewMain.snp.width)
+            make.height.equalTo(stackViewMain.snp.height).multipliedBy(0.5)
+        }
+        
+        regButton.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(logButton.snp.bottom).offset(20)
             make.width.equalTo(stackViewMain.snp.width)
             make.height.equalTo(stackViewMain.snp.height).multipliedBy(0.5)
         }

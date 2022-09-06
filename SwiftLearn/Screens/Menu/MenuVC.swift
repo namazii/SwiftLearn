@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import FirebaseAuth
 
 final class MenuVC: UIViewController {
     
@@ -31,22 +32,22 @@ final class MenuVC: UIViewController {
         return button
     }()
     
-    lazy var categoryButton: UIButton = {
+    lazy var historyButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
-        button.setTitle("Категория", for: .normal)
+        button.setTitle("История", for: .normal)
         button.addTarget(self, action: #selector(buttonPressAction), for: .touchUpInside)
         
         return button
     }()
 
-    lazy var historyButton: UIButton = {
+    lazy var exitButton: UIButton = {
         let button = UIButton()
         
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
-        button.setTitle("История", for: .normal)
+        button.setTitle("Выход", for: .normal)
         button.addTarget(self, action: #selector(buttonPressAction), for: .touchUpInside)
         
         return button
@@ -74,13 +75,14 @@ final class MenuVC: UIViewController {
     
     //MARK: - Private
     private func setupViews() {
+        navigationItem.hidesBackButton = true
         view.backgroundColor = .systemBackground
         view.addSubview(stackViewMain)
         
         stackViewMain.addArrangedSubview(logoLabel)
         stackViewMain.addArrangedSubview(playButton)
-        stackViewMain.addArrangedSubview(categoryButton)
         stackViewMain.addArrangedSubview(historyButton)
+        stackViewMain.addArrangedSubview(exitButton)
     }
     
     private func setupConstraints() {
@@ -92,11 +94,11 @@ final class MenuVC: UIViewController {
             make.width.equalTo(stackViewMain)
             make.height.lessThanOrEqualTo(50)
         }
-        categoryButton.snp.makeConstraints { make in
+        historyButton.snp.makeConstraints { make in
             make.width.equalTo(stackViewMain)
             make.height.lessThanOrEqualTo(50)
         }
-        historyButton.snp.makeConstraints { make in
+        exitButton.snp.makeConstraints { make in
             make.width.equalTo(stackViewMain)
             make.height.lessThanOrEqualTo(50)
         }
@@ -121,7 +123,9 @@ final class MenuVC: UIViewController {
     private func showResultScreen() {
         let vc = ResultVC()
         self.navigationController?.pushViewController(vc, animated: true)
-        
+    }
+    private func showLogVC() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - Actions
@@ -132,7 +136,15 @@ final class MenuVC: UIViewController {
         switch sender {
         case playButton:
             showCategoriesScreen()
-           
+        case historyButton:
+            print("История")
+        case exitButton:
+            do {
+                try Auth.auth().signOut()
+                showLogVC()
+            } catch {
+                print(error.localizedDescription)
+            }
         default: break
         }
     }

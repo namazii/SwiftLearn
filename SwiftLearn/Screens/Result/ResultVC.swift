@@ -53,15 +53,13 @@ class ResultVC: UIViewController {
         setConstraints()
     }
     
+    //MARK: - Navigation
     @objc private func getBack(_ sender: UIButton) {
         print("ok")
         view.animateViewPress(sender)
         questionProvider.questionFalse = []
         questionProvider.questionTrue = []
-        navigationController?.popToRootViewController(animated: true)
-        
-        
-        
+        navigationController?.popToViewController(MenuVC(), animated: true)
     }
     
     private func setupText() {
