@@ -30,7 +30,7 @@ final class LogVC: UIViewController {
         textField.autocorrectionType = .no
         textField.spellCheckingType = .no
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        textField.layer.borderColor = Resources.Colors.border.cgColor
         textField.layer.cornerRadius = 3
         
         return textField
@@ -45,7 +45,7 @@ final class LogVC: UIViewController {
         textField.spellCheckingType = .no
         textField.isSecureTextEntry = true
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        textField.layer.borderColor = Resources.Colors.border.cgColor
         textField.layer.cornerRadius = 3
         
         return textField
