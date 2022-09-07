@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseCore
 
 struct Topic: Hashable {
     
@@ -22,6 +25,8 @@ final class CategoriesVC: UIViewController {
     
     var questionsAPI = QuestionsAPI()
     
+    let ref = Database.database(url: "https://swiftlearn-8243e-default-rtdb.asia-southeast1.firebasedatabase.app").reference()
+    
     var questions: [Question] = []
     var topicsSet: Set<Topic> = []
     
@@ -35,20 +40,67 @@ final class CategoriesVC: UIViewController {
 
         return collectionView
     }()
-
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         
         fetchQuestions()
         fetchTopics()
+        
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        let complete = ref.observe(.value) { snapshot in
+//
+//            var newItems: [QuestionResponse] = []
+//
+//
+//            for child in snapshot.children {
+//
+//                if let snapshot = child as? DataSnapshot,
+//                   let question = QuestionResponse(snapshot: snapshot) {
+//                    newItems.append(question)
+//                }
+//            }
+//
+//
+//            print(snapshot.value as Any)
+//            print("ENDDDDDDD")
+//        }
+//    }
     //MARK: - Private
     private func setupViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
     }
+    
+//    func fetchFireBase() -> [Question] {
+//        ref.observe(.value) { snapshot in
+//            print(snapshot.value as Any)
+//            print("ENDDDDDDD")
+//            do {
+//
+//                guard let response = try JSONDecoder().decode(QuestionResponse.self, from: snapshot.value as? Data) else { return [] }
+//                let questions = response.items
+//                return questions
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        do {
+////            guard let json = try String(contentsOfFile: bundlePath).data(using: .utf8) else { return [] }
+////            let response = try JSONDecoder().decode(QuestionResponse.self, from: json)
+//            let questions = response.items
+//            return questions
+//
+//        } catch {
+//            print(error)
+//        }
+//        return []
+//    }
     
     //MARK: - Requests
     private func fetchQuestions() {

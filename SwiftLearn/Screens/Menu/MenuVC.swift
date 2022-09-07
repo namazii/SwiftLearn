@@ -125,7 +125,7 @@ final class MenuVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     private func showLogVC() {
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.dismiss(animated: true)
     }
     
     // MARK: - Actions
