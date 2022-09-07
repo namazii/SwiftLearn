@@ -48,6 +48,15 @@ final class QuestionVC: UIViewController {
         return tableView
     }()
     
+    private lazy var progressView: UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .bar)
+        
+        progressView.trackTintColor = .gray
+        progressView.progressTintColor = .systemYellow
+        
+        return progressView
+    }()
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +73,12 @@ final class QuestionVC: UIViewController {
     //MARK: - Private
     private func setupViews() {
         navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.isHidden = false
+        
         view.backgroundColor = .systemBackground
+        view.addSubview(progressView)
+        progressView.frame = CGRect(x: 10, y: 100, width: view.frame.size.width-20, height: 20)
+        progressView.setProgress(0.5, animated: false)
         view.addSubview(tableView)
         tableView.pinEdgesToSuperView()
     }

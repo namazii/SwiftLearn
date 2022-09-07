@@ -167,7 +167,10 @@ final class LogVC: UIViewController {
     
     private func showMenuVC() {
         let vc = MenuVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = . fullScreen
+        present(navVC, animated: true)
     }
     
     //MARK: - Constraints

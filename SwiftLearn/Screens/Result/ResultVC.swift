@@ -59,7 +59,8 @@ class ResultVC: UIViewController {
         view.animateViewPress(sender)
         questionProvider.questionFalse = []
         questionProvider.questionTrue = []
-        navigationController?.popToViewController(MenuVC(), animated: true)
+//        navigationController?.popToViewController(MenuVC(), animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func setupText() {
