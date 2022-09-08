@@ -10,13 +10,13 @@ import Foundation
 //Бизнес-логика - выдавать вопросы
 final class QuestionProvider {
     
-    private var questionsAPI = QuestionsAPI()
-    
     static let shared = QuestionProvider()
     
-    var questions: [Question] = []
+    var questionsResponse: [Question] = []//прогрузка данных с экрана категорий
+    private var questions: [Question] = [] //отфильтрованный по категории массив, из которого удаляются элементы
+    private var allQuestions: [Question] = [] //отфильтрованный по категории массив
     
-    var currentQuestion: Question?
+    private var currentQuestion: Question?
     
     var questionTrue: [Question] = []
     var questionFalse: [Question] = []
@@ -24,9 +24,11 @@ final class QuestionProvider {
     //MARK: - Requests
     func fetchQuestions(_ topic: String) {
         
-        let allQuestions = questionsAPI.fetchQuestions(name: "questions")
+        let allQuestions = questionsResponse
+        
         let filteredQuestions = allQuestions.filter { $0.topic.contains(topic) }
         questions = filteredQuestions
+        self.allQuestions = filteredQuestions
     }
     
     func fetchNextQuestion() -> Question? {
@@ -36,5 +38,13 @@ final class QuestionProvider {
         questions = Array(questions.dropFirst())
         
         return question
+    }
+    
+    func calculateAnsweredQuestions() -> Float {
+        let percent = Float(allQuestions.count) / 100
+        let percentAnswered = Float(questions.count) / percent
+        let percentResult = 1 - (percentAnswered / 100)
+        print(percentResult)
+        return percentResult
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - Enums
 fileprivate enum SectionType: Int, CaseIterable {
     case question = 0
     case answers
@@ -20,22 +21,23 @@ fileprivate enum QuestionType: Int, CaseIterable {
 
 final class QuestionVC: UIViewController {
     
-    var questionProvider = QuestionProvider.shared
-    
     //MARK: - Properties
-    var topic: Topic?
-    var currentQuestion: Question?
+    private let questionProvider = QuestionProvider.shared
     
-    //???
-    var pressedButton = false
-    var didSelectedCell = false
+    var topic: Topic?
+    private var currentQuestion: Question?
+    
+    private var pressedButton = false
+    private var didSelectedCell = false
     var indexRow = IndexPath()
-
-    lazy var tableView: UITableView = {
+    
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.allowsMultipleSelection = true
+        tableView.bounces = false
+        tableView.showsVerticalScrollIndicator = false
         
         tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.identifier)
         tableView.register(CodeCell.self, forCellReuseIdentifier: CodeCell.identifier)
@@ -48,11 +50,12 @@ final class QuestionVC: UIViewController {
         return tableView
     }()
     
-    private lazy var progressView: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .bar)
+    private let progressView: UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .default)
         
         progressView.trackTintColor = .gray
         progressView.progressTintColor = .systemYellow
+        progressView.setProgress(0, animated: false)
         
         return progressView
     }()
@@ -60,27 +63,33 @@ final class QuestionVC: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupViews()
         
         let topicText = topic?.text ?? ""
         questionProvider.fetchQuestions(topicText)
         
         currentQuestion = questionProvider.fetchNextQuestion()
-
+        
         tableView.reloadData()
     }
-
+    
     //MARK: - Private
     private func setupViews() {
-        navigationItem.hidesBackButton = true
         navigationController?.navigationBar.isHidden = false
+        navigationItem.titleView = progressView
         
-        view.backgroundColor = .systemBackground
+        navigationItem.hidesBackButton = true
+        
+        view.backgroundColor = .white
         view.addSubview(progressView)
-        progressView.frame = CGRect(x: 10, y: 100, width: view.frame.size.width-20, height: 20)
-        progressView.setProgress(0.5, animated: false)
+        
         view.addSubview(tableView)
         tableView.pinEdgesToSuperView()
+    }
+    private func updateAnsweredQuestionsProgress() {
+        let percentProgress = questionProvider.calculateAnsweredQuestions()
+        progressView.setProgress(percentProgress, animated: true)
     }
 }
 
@@ -88,19 +97,17 @@ final class QuestionVC: UIViewController {
 extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         let sectionType = SectionType(rawValue: indexPath.section)
         
         switch sectionType {
         case .answers: indexRow = indexPath
         default:
-            print(indexPath)
+            indexRow = []
             break
         }
-        
-        
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.allCases.count
     }
@@ -124,7 +131,7 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
         guard let question = currentQuestion else { return 0 }
         
         if let sectionType = SectionType.init(rawValue: indexPath.section) {
-
+            
             switch sectionType {
             case .question:
                 
@@ -193,7 +200,6 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
                 } else {
                     cell.configure(answer.text, answer.status, bool: false)
                 }
-//                cell.configure(answer.text, answer.status)
                 cell.selectionStyle = .none
                 cell.isSelected = false
                 return cell
@@ -201,20 +207,13 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
             case .button:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.identifier, for: indexPath) as? ButtonCell else { return UITableViewCell() }
                 
-                
-                
-                //cell.configure("ButtonPress")
                 cell.selectionStyle = .none
-//                cell.isSelected = false
                 cell.output = self
-                
                 return cell
             }
         }
-        
         return UITableViewCell()
     }
-    
 }
 
 //MARK: - ButtonCellOutput
@@ -229,57 +228,36 @@ extension QuestionVC: ButtonCellOutput {
         case .checkAnswer:
             
             //Логика раскладов
-            print("checkAnswer")
-            tableView.allowsSelection = false
+            
             pressedButton = true
             
-//            let answered = currentQuestion?.answers[indexRow.row]
             guard let answered = currentQuestion?.answers[indexRow.row] else { return } // дает ответ
-//            guard let answered = currentQuestion?.answers[tableView.indexPathForSelectedRow?.row ?? 0] else { return }
             
             guard let currentQuestion = currentQuestion else { return }
             if answered.status == true {
-                print(" TRUE \(answered)")
                 questionProvider.questionTrue.append(currentQuestion)
-//                print(questionProvider.questionTrue)
+                
             } else {
-                print(" FALSE \(answered)")
                 questionProvider.questionFalse.append(currentQuestion)
-//                print(questionProvider.questionFalse)
             }
-//            answerCell.paintCell()
-//            tableView.reloadData()
-//            let cell = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)
-            
-//            let answers = currentQuestion?.answers ?? []
-//            for answer in answers {
-//                if answer.status == true {
-//                    cell?.backgroundColor = .green
-//                } else {
-//                    cell?.backgroundColor = .red
-//                }
-//            }
-            //indexRow = [] // от бага с сохранением индексов
             tableView.reloadData()
+            tableView.selectRow(at: indexRow, animated: false, scrollPosition: .none)
+            tableView.allowsSelection = false
             
         case .nextAnswer:
-            
+            updateAnsweredQuestionsProgress()
             //Логика перехода на следующий экран
-            print("nextAnswer")
             pressedButton = false
             currentQuestion = questionProvider.fetchNextQuestion()
             tableView.reloadData()
             tableView.allowsSelection = true
             indexRow = []
             
-            
             if currentQuestion == nil {
-                //Переходит на экрана результат - 10/15 (70%)
                 let vc = ResultVC()
                 vc.questionProvider = questionProvider
                 navigationController?.pushViewController(vc, animated: true)
             }
-            
         }
     }
 }

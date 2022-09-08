@@ -7,9 +7,9 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
-import FirebaseCore
+import FirebaseDatabaseSwift
 
+//MARK: - Topic
 struct Topic: Hashable {
     
     var text = ""
@@ -23,93 +23,59 @@ struct Topic: Hashable {
 
 final class CategoriesVC: UIViewController {
     
-    var questionsAPI = QuestionsAPI()
+    //MARK: - Private Properties
+    private let ref = Database.database(
+        url: "https://swiftlearn-8243e-default-rtdb.asia-southeast1.firebasedatabase.app"
+    ).reference()
     
-    let ref = Database.database(url: "https://swiftlearn-8243e-default-rtdb.asia-southeast1.firebasedatabase.app").reference()
+    private lazy var questions: [Question] = []
+    private lazy var topicsSet: Set<Topic> = []
     
-    var questions: [Question] = []
-    var topicsSet: Set<Topic> = []
+    private lazy var topics: [Topic] = []
     
-    lazy var topics: [Topic] = []
-    
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self
-
+        
         return collectionView
     }()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupViews()
-        
-        fetchQuestions()
-        fetchTopics()
-        
+        fetchData {
+            self.fetchTopics()
+        }
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        let complete = ref.observe(.value) { snapshot in
-//
-//            var newItems: [QuestionResponse] = []
-//
-//
-//            for child in snapshot.children {
-//
-//                if let snapshot = child as? DataSnapshot,
-//                   let question = QuestionResponse(snapshot: snapshot) {
-//                    newItems.append(question)
-//                }
-//            }
-//
-//
-//            print(snapshot.value as Any)
-//            print("ENDDDDDDD")
-//        }
-//    }
-    //MARK: - Private
-    private func setupViews() {
-        view.backgroundColor = .systemBackground
-        view.addSubview(collectionView)
-    }
-    
-//    func fetchFireBase() -> [Question] {
-//        ref.observe(.value) { snapshot in
-//            print(snapshot.value as Any)
-//            print("ENDDDDDDD")
-//            do {
-//
-//                guard let response = try JSONDecoder().decode(QuestionResponse.self, from: snapshot.value as? Data) else { return [] }
-//                let questions = response.items
-//                return questions
-//            } catch {
-//                print(error)
-//            }
-//        }
-//        do {
-////            guard let json = try String(contentsOfFile: bundlePath).data(using: .utf8) else { return [] }
-////            let response = try JSONDecoder().decode(QuestionResponse.self, from: json)
-//            let questions = response.items
-//            return questions
-//
-//        } catch {
-//            print(error)
-//        }
-//        return []
-//    }
     
     //MARK: - Requests
-    private func fetchQuestions() {
-        questions = questionsAPI.fetchQuestions(name: "questions")
+    private func fetchData(_ completion: @escaping ()->()) {
+        ref.child("items").observe(.value) { snapshot in
+            guard let children = snapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            let questions = children.compactMap { snapshot in
+                return try? snapshot.data(as: Question.self)
+            }
+            self.questions = questions
+            QuestionProvider.shared.questionsResponse = questions
+            
+            completion()
+        }
+    }
+    
+    //MARK: - Private
+    private func setupViews() {
+        view.backgroundColor = .white
+        view.addSubview(collectionView)
     }
     
     private func fetchTopics() {
         for question in questions {
-
             let array = question.topic
             let dictionary = zip(array, question.image)
             if array.count > 1 {
@@ -122,14 +88,12 @@ final class CategoriesVC: UIViewController {
             let topic = Topic(text: question.topic.first ?? "", image: question.image.first ?? "")
             topicsSet.insert(topic)
         }
-
         topics = Array(topicsSet)
         collectionView.reloadData()
     }
     
     //MARK: - Actions
-    
-    private func chooseCategorieAction(_ indexPath: IndexPath) {
+    private func chooseCategoryAction(_ indexPath: IndexPath) {
         let topic = topics[indexPath.row]
         showQuestionScreen(topic)
     }
@@ -152,7 +116,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseID, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-
+        
         let topic = topics[indexPath.row]
         cell.configure(topic)
         
@@ -160,7 +124,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       chooseCategorieAction(indexPath)
+        chooseCategoryAction(indexPath)
     }
 }
 
@@ -169,7 +133,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension CategoriesVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
+        
         let inset = 20 //
         let itemsInRow = 2 // |[]|[]|
         let insetsWidth = inset * (itemsInRow + 1)//ширина отступов всех

@@ -12,9 +12,8 @@
 		BC128D4F289D688400BCDC08 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC128D4E289D688400BCDC08 /* QuestionVC.swift */; };
 		BC128D54289D688600BCDC08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC128D53289D688600BCDC08 /* Assets.xcassets */; };
 		BC128D57289D688600BCDC08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC128D55289D688600BCDC08 /* LaunchScreen.storyboard */; };
-		BC128D5F289D689E00BCDC08 /* QuestionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC128D5E289D689E00BCDC08 /* QuestionAPI.swift */; };
 		BC128D61289D705400BCDC08 /* QuestionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC128D60289D705400BCDC08 /* QuestionResponse.swift */; };
-		BC1CE524289E572E00B6EE15 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC1CE522289E572E00B6EE15 /* CoreData.xcdatamodeld */; };
+		BC15626D28C8DA5E007E91DF /* celebrate.json in Resources */ = {isa = PBXBuildFile; fileRef = BC15626C28C8DA5E007E91DF /* celebrate.json */; };
 		BC26FAA628A5160000CF5D2F /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC26FAA528A5160000CF5D2F /* TextCell.swift */; };
 		BC26FAAA28A5181900CF5D2F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC26FAA928A5181900CF5D2F /* SnapKit */; };
 		BC26FAAC28A518B700CF5D2F /* CodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC26FAAB28A518B700CF5D2F /* CodeCell.swift */; };
@@ -24,13 +23,13 @@
 		BC68161028B10B04008DCC3C /* UIView+AnimateViewPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68160F28B10B04008DCC3C /* UIView+AnimateViewPress.swift */; };
 		BC68161328B22B76008DCC3C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68161228B22B76008DCC3C /* MenuVC.swift */; };
 		BC68161628B25650008DCC3C /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68161528B25650008DCC3C /* CategoriesVC.swift */; };
-		BC6D57A228A90D26003DB11E /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = BC6D57A128A90D26003DB11E /* questions.json */; };
 		BC77531828AE4DA700AA5695 /* QuestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77531728AE4DA700AA5695 /* QuestionProvider.swift */; };
 		BC8E488F28B3D2E70027BC7B /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E488E28B3D2E70027BC7B /* CategoryCell.swift */; };
 		BCA7025828BDFF58005DFC9B /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA7025728BDFF58005DFC9B /* ResultVC.swift */; };
 		BCBCCB3B28C6514C0078968B /* UIViewController + AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCB3A28C6514C0078968B /* UIViewController + AlertService.swift */; };
 		BCC4BAF228C7A0300078A608 /* UIColor + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4BAF128C7A0300078A608 /* UIColor + extension.swift */; };
 		BCC4BAF428C7A16F0078A608 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4BAF328C7A16F0078A608 /* Resources.swift */; };
+		BCC6E97628C8DB9200EDF4C2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCC6E97528C8DB9200EDF4C2 /* Lottie */; };
 		BCCE4D6C28BF67FC00397979 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCCE4D6B28BF67FC00397979 /* GoogleService-Info.plist */; };
 		BCCE4D6F28BF68F100397979 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BCCE4D6E28BF68F100397979 /* FirebaseAnalytics */; };
 		BCCE4D7128BF68F100397979 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCCE4D7028BF68F100397979 /* FirebaseAnalyticsSwift */; };
@@ -54,9 +53,8 @@
 		BC128D53289D688600BCDC08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC128D56289D688600BCDC08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC128D58289D688600BCDC08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC128D5E289D689E00BCDC08 /* QuestionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAPI.swift; sourceTree = "<group>"; };
 		BC128D60289D705400BCDC08 /* QuestionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResponse.swift; sourceTree = "<group>"; };
-		BC1CE523289E572E00B6EE15 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		BC15626C28C8DA5E007E91DF /* celebrate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = celebrate.json; sourceTree = "<group>"; };
 		BC26FAA528A5160000CF5D2F /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		BC26FAAB28A518B700CF5D2F /* CodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCell.swift; sourceTree = "<group>"; };
 		BC26FAAD28A5192800CF5D2F /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 		BC68160F28B10B04008DCC3C /* UIView+AnimateViewPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AnimateViewPress.swift"; sourceTree = "<group>"; };
 		BC68161228B22B76008DCC3C /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		BC68161528B25650008DCC3C /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
-		BC6D57A128A90D26003DB11E /* questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		BC77531728AE4DA700AA5695 /* QuestionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProvider.swift; sourceTree = "<group>"; };
 		BC8E488E28B3D2E70027BC7B /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		BCA7025728BDFF58005DFC9B /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
@@ -81,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC6E97628C8DB9200EDF4C2 /* Lottie in Frameworks */,
 				BCCE4D7928BF68F100397979 /* FirebaseDatabaseSwift in Frameworks */,
 				BCCE4D7728BF68F100397979 /* FirebaseDatabase in Frameworks */,
 				BCCE4D7128BF68F100397979 /* FirebaseAnalyticsSwift in Frameworks */,
@@ -102,12 +100,11 @@
 		12F99EA728AE5CFB000C5260 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BCC6E97728C8E0BA00EDF4C2 /* Animation */,
 				BCCE4D6B28BF67FC00397979 /* GoogleService-Info.plist */,
 				BC128D53289D688600BCDC08 /* Assets.xcassets */,
 				BC128D55289D688600BCDC08 /* LaunchScreen.storyboard */,
 				BC128D58289D688600BCDC08 /* Info.plist */,
-				BC6D57A128A90D26003DB11E /* questions.json */,
-				BC1CE522289E572E00B6EE15 /* CoreData.xcdatamodeld */,
 				BCC4BAF328C7A16F0078A608 /* Resources.swift */,
 			);
 			path = Resources;
@@ -117,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				BC77531728AE4DA700AA5695 /* QuestionProvider.swift */,
-				BC128D5E289D689E00BCDC08 /* QuestionAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -228,6 +224,14 @@
 			path = Result;
 			sourceTree = "<group>";
 		};
+		BCC6E97728C8E0BA00EDF4C2 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				BC15626C28C8DA5E007E91DF /* celebrate.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,6 +261,7 @@
 				BCCE4D7E28BF68F100397979 /* FirebaseRemoteConfig */,
 				BCCE4D8028BF68F100397979 /* FirebaseRemoteConfigSwift */,
 				BCCE4D8228BF68F100397979 /* FirebaseStorage */,
+				BCC6E97528C8DB9200EDF4C2 /* Lottie */,
 			);
 			productName = SwiftLearn;
 			productReference = BC128D47289D688400BCDC08 /* SwiftLearn.app */;
@@ -289,6 +294,7 @@
 			packageReferences = (
 				BC26FAA828A5181900CF5D2F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BCCE4D6D28BF68F100397979 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BCC6E97428C8DB9200EDF4C2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = BC128D48289D688400BCDC08 /* Products */;
 			projectDirPath = "";
@@ -306,7 +312,7 @@
 			files = (
 				BC128D57289D688600BCDC08 /* LaunchScreen.storyboard in Resources */,
 				BCCE4D6C28BF67FC00397979 /* GoogleService-Info.plist in Resources */,
-				BC6D57A228A90D26003DB11E /* questions.json in Resources */,
+				BC15626D28C8DA5E007E91DF /* celebrate.json in Resources */,
 				BC128D54289D688600BCDC08 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +329,6 @@
 				BC128D61289D705400BCDC08 /* QuestionResponse.swift in Sources */,
 				BC26FAB228A522C900CF5D2F /* UIView+PinEdges.swift in Sources */,
 				BC68161028B10B04008DCC3C /* UIView+AnimateViewPress.swift in Sources */,
-				BC1CE524289E572E00B6EE15 /* CoreData.xcdatamodeld in Sources */,
 				BCA7025828BDFF58005DFC9B /* ResultVC.swift in Sources */,
 				BC128D4B289D688400BCDC08 /* AppDelegate.swift in Sources */,
 				BCBCCB3B28C6514C0078968B /* UIViewController + AlertService.swift in Sources */,
@@ -334,7 +339,6 @@
 				BC26FAA628A5160000CF5D2F /* TextCell.swift in Sources */,
 				BC26FAAC28A518B700CF5D2F /* CodeCell.swift in Sources */,
 				BC26FAB028A51BA500CF5D2F /* ButtonCell.swift in Sources */,
-				BC128D5F289D689E00BCDC08 /* QuestionAPI.swift in Sources */,
 				BC68161628B25650008DCC3C /* CategoriesVC.swift in Sources */,
 				BC77531828AE4DA700AA5695 /* QuestionProvider.swift in Sources */,
 				BC26FAAE28A5192800CF5D2F /* AnswerCell.swift in Sources */,
@@ -556,6 +560,14 @@
 				kind = branch;
 			};
 		};
+		BCC6E97428C8DB9200EDF4C2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		BCCE4D6D28BF68F100397979 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -571,6 +583,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC26FAA828A5181900CF5D2F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BCC6E97528C8DB9200EDF4C2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCC6E97428C8DB9200EDF4C2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		BCCE4D6E28BF68F100397979 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -628,19 +645,6 @@
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		BC1CE522289E572E00B6EE15 /* CoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BC1CE523289E572E00B6EE15 /* CoreData.xcdatamodel */,
-			);
-			currentVersion = BC1CE523289E572E00B6EE15 /* CoreData.xcdatamodel */;
-			path = CoreData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = BC128D3F289D688400BCDC08 /* Project object */;
 }

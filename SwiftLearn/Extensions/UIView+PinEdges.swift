@@ -8,9 +8,7 @@
 import UIKit
 
 extension UIView {
-    
     func pinEdgesToSuperView(_ constant: CGFloat = 0) {
-        
         guard let superview = self.superview else { return }
         self.translatesAutoresizingMaskIntoConstraints = false
         

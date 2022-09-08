@@ -12,7 +12,7 @@ import FirebaseAuth
 final class MenuVC: UIViewController {
     
     //MARK: - Properties
-    lazy var logoLabel: UILabel = {
+    private let logoLabel: UILabel = {
         let label = UILabel()
         label.text = "SwiftLearn"
         label.textAlignment = .center
@@ -22,7 +22,7 @@ final class MenuVC: UIViewController {
         return label
     }()
     
-    lazy var playButton: UIButton = {
+    private lazy var playButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
@@ -32,7 +32,7 @@ final class MenuVC: UIViewController {
         return button
     }()
     
-    lazy var historyButton: UIButton = {
+    private lazy var historyButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
@@ -41,8 +41,8 @@ final class MenuVC: UIViewController {
         
         return button
     }()
-
-    lazy var exitButton: UIButton = {
+    
+    private lazy var exitButton: UIButton = {
         let button = UIButton()
         
         button.backgroundColor = .systemBlue
@@ -53,7 +53,7 @@ final class MenuVC: UIViewController {
         return button
     }()
     
-    lazy var stackViewMain: UIStackView = {
+    private let stackViewMain: UIStackView = {
         let stackView = UIStackView()
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +76,7 @@ final class MenuVC: UIViewController {
     //MARK: - Private
     private func setupViews() {
         navigationItem.hidesBackButton = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         view.addSubview(stackViewMain)
         
         stackViewMain.addArrangedSubview(logoLabel)
@@ -105,14 +105,12 @@ final class MenuVC: UIViewController {
         
         stackViewMain.snp.makeConstraints { make in
             make.center.equalTo(view.snp.center)
-//            make.left.right.equalTo(view).inset(40)
-//            make.top.bottom.equalTo(view).inset(300)
             make.width.height.greaterThanOrEqualTo(300)
-
+            
         }
     }
     
-   
+    
     // MARK: - Navigation
     
     private func showCategoriesScreen() {
@@ -137,7 +135,7 @@ final class MenuVC: UIViewController {
         case playButton:
             showCategoriesScreen()
         case historyButton:
-            print("История")
+            break
         case exitButton:
             do {
                 try Auth.auth().signOut()

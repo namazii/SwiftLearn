@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import SnapKit
 
-class CodeCell: UITableViewCell {
-
+final class CodeCell: UITableViewCell {
+    
+    //MARK: - Properties
     static let identifier = "CodeCell"
     
-    lazy var codeLabel: UILabel = {
+    private let codeLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -27,7 +27,7 @@ class CodeCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //prepareForReuse()
+        
         setupViews()
         setupConstraints()
     }
@@ -45,10 +45,8 @@ class CodeCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        
         codeLabel.snp.makeConstraints { make in
             make.top.bottom.left.right.equalTo(contentView).inset(20)
         }
     }
-
 }

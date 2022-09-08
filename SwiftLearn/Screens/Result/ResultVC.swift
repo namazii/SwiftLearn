@@ -66,7 +66,7 @@ final class ResultVC: UIViewController {
         animationView.play()
         
         navigationItem.hidesBackButton = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         
         view.addSubview(resultLabel)
         view.addSubview(animationView)

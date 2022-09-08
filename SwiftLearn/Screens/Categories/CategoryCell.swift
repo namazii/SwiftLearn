@@ -8,23 +8,18 @@
 import UIKit
 import SnapKit
 
-//filepr enum Russify: String {
-//    case swift = "Swift"
-//    case theory = "Теория"
-//    case optional = "Опционалы"
-//}
-
-class CategoryCell: UICollectionViewCell {
+final class CategoryCell: UICollectionViewCell {
     
+    //MARK: - Private Properties
     static let reuseID = "CategoryCell"
     
-    lazy var categoryImage: UIImageView = {
+    private let categoryImage: UIImageView = {
         let image = UIImageView()
         
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         
         label.numberOfLines = 0
@@ -35,6 +30,7 @@ class CategoryCell: UICollectionViewCell {
         return label
     }()
     
+    //MARK: - LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -46,7 +42,6 @@ class CategoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     //MARK: - Public
-       
     override var isSelected: Bool {
         didSet {
             animateViewPress(self)
@@ -61,10 +56,9 @@ class CategoryCell: UICollectionViewCell {
         default:
             return
         }
-//        nameLabel.text = model.text
         categoryImage.image = UIImage(named: model.image)
     }
-
+    
     //MARK: - PrivateMethods
     private func setupViews() {
         contentView.addSubview(nameLabel)
@@ -76,10 +70,9 @@ class CategoryCell: UICollectionViewCell {
             make.top.left.right.equalTo(contentView).inset(0)
             make.bottom.equalTo(categoryImage.snp.top).inset(-5)
         }
+        
         categoryImage.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(contentView).inset(20)
         }
-        
-        //questionTextLabel.pinEdgesToSuperView()
     }
 }
