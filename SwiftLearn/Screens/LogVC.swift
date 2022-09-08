@@ -12,7 +12,7 @@ import FirebaseAuth
 final class LogVC: UIViewController {
     
     //MARK: - Properties
-    private lazy var logoLabel: UILabel = {
+    private let logoLabel: UILabel = {
         let label = UILabel()
         label.text = "SwiftLearn"
         label.textAlignment = .center
@@ -22,8 +22,8 @@ final class LogVC: UIViewController {
         return label
     }()
     
-    private lazy var emailTextField: UITextField = {
-       let textField = UITextField()
+    private let emailTextField: UITextField = {
+        let textField = UITextField()
         
         textField.placeholder = "Email"
         textField.autocapitalizationType = .none
@@ -36,8 +36,8 @@ final class LogVC: UIViewController {
         return textField
     }()
     
-    private lazy var passwordTextField: UITextField = {
-       let textField = UITextField()
+    private let passwordTextField: UITextField = {
+        let textField = UITextField()
         
         textField.placeholder = "Password"
         textField.autocapitalizationType = .none
@@ -75,8 +75,8 @@ final class LogVC: UIViewController {
         return button
     }()
     
-    private lazy var stackViewMain: UIStackView = {
-       let stackView = UIStackView()
+    private let stackViewMain: UIStackView = {
+        let stackView = UIStackView()
         
         stackView.spacing = 8
         stackView.distribution = .fillEqually
@@ -84,11 +84,11 @@ final class LogVC: UIViewController {
         
         return stackView
     }()
-
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViews()
         setConstraints()
         addTap()
@@ -109,7 +109,7 @@ final class LogVC: UIViewController {
     
     //MARK: - Private
     private func setupViews() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         
         logButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.height / 40)
         regButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.height / 40)
@@ -167,7 +167,6 @@ final class LogVC: UIViewController {
     
     private func showMenuVC() {
         let vc = MenuVC()
-//        self.navigationController?.pushViewController(vc, animated: true)
         let navVC = UINavigationController(rootViewController: vc)
         navVC.modalPresentationStyle = . fullScreen
         present(navVC, animated: true)
@@ -178,8 +177,6 @@ final class LogVC: UIViewController {
         logoLabel.snp.makeConstraints { make in
             make.bottom.equalTo(stackViewMain.snp.top).offset(-20)
             make.centerX.equalTo(view)
-//            make.height.equalTo(view.snp.height).multipliedBy(0.5)
-//            make.width.equalTo(view.snp.width).multipliedBy(0.5)
         }
         
         stackViewMain.snp.makeConstraints { make in

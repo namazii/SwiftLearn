@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import SnapKit
 
-class TextCell: UITableViewCell {
+final class TextCell: UITableViewCell {
     
+    //MARK: - Properties
     static let identifier = "TextCell"
     
-    lazy var questionTextLabel: UILabel = {
+    private let questionTextLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -27,10 +27,9 @@ class TextCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //prepareForReuse()
+        
         setupViews()
         setupConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +49,5 @@ class TextCell: UITableViewCell {
         questionTextLabel.snp.makeConstraints { make in
             make.top.bottom.left.right.equalTo(contentView).inset(20)
         }
-        
-        //questionTextLabel.pinEdgesToSuperView()
     }
 }

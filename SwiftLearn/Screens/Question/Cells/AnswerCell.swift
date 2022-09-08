@@ -6,21 +6,16 @@
 //
 
 import UIKit
-import SnapKit
 
-class AnswerCell: UITableViewCell {
-
+final class AnswerCell: UITableViewCell {
+    
+    //MARK: - Properties
     static let identifier = "AnswerCell"
     
-    
-    private var answerStatus: Bool?  {
-        didSet {
-//            print(answerStatus)
-        }
-    }
+    private var answerStatus: Bool?
     private var answerType = ""
     
-    lazy var answerLabel: UILabel = {
+    private let answerLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -28,21 +23,16 @@ class AnswerCell: UITableViewCell {
         return label
     }()
     
-    lazy var checkMark: UIImageView = {
+    private lazy var checkMark: UIImageView = {
         let image = UIImageView()
         
         return image
     }()
     
     //MARK: - Lifecycle
-//    override func prepareForReuse() {
-//        answerLabel.text = nil
-//        checkMark.image = nil
-//    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //prepareForReuse()
+        
         setupViews()
         setupConstraints()
     }
@@ -53,10 +43,8 @@ class AnswerCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-//        contentView.animateViewPress(checkMark)
-//        contentView.animateViewPress(answerLabel)
         if (selected) {
-            contentView.animateViewPress(self)
+            contentView.animateViewPress(checkMark)
             checkMark.image = UIImage(named: "checkOn")
         } else {
             contentView.animateViewPress(checkMark)
@@ -69,35 +57,18 @@ class AnswerCell: UITableViewCell {
     func configure(_ text: String, _ status: Bool, bool: Bool) {
         
         answerLabel.text = text
-        
         answerStatus = status
         
         if bool == true {
-            
             if status == true {
                 backgroundColor = .systemGreen
             } else {
                 backgroundColor = .systemRed
             }
-            
         } else {
             backgroundColor = .systemBackground
         }
-//        checkMark.image = UIImage(named: "checkOff")
     }
-    
-//    func paintCell() {
-////        print("PAINT CELL")
-////        guard let status = answerStatus else { return }
-////        print(answerStatus)
-////        print(status)
-//        if answerStatus {
-//            print("2\(status) !status")
-//            self.backgroundColor = .green
-//        } else {
-//            self.backgroundColor = .red
-//        }
-//    }
     
     private func setupViews() {
         contentView.addSubview(answerLabel)
@@ -116,8 +87,5 @@ class AnswerCell: UITableViewCell {
             make.right.lessThanOrEqualTo(contentView)
             
         }
-        
-        
     }
-
 }
