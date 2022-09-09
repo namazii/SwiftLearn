@@ -76,7 +76,7 @@ final class MenuVC: UIViewController {
     //MARK: - Private
     private func setupViews() {
         navigationItem.hidesBackButton = true
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(stackViewMain)
         
         stackViewMain.addArrangedSubview(logoLabel)
@@ -115,12 +115,12 @@ final class MenuVC: UIViewController {
     
     private func showCategoriesScreen() {
         let vc = CategoriesVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func showResultScreen() {
-        let vc = ResultVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+    private func showHistoryVC() {
+        let vc = HistoryVC()
+        present(vc, animated: true)
     }
     private func showLogVC() {
         navigationController?.dismiss(animated: true)
@@ -135,7 +135,7 @@ final class MenuVC: UIViewController {
         case playButton:
             showCategoriesScreen()
         case historyButton:
-            break
+            showHistoryVC()
         case exitButton:
             do {
                 try Auth.auth().signOut()

@@ -14,6 +14,8 @@ final class ResultVC: UIViewController {
     //MARK: - Properties
     var questionProvider = QuestionProvider.shared
     
+    var topic: String?
+    
     private let animation = Animation.named("celebrate")
     
     private lazy var animationView: AnimationView = {
@@ -60,18 +62,47 @@ final class ResultVC: UIViewController {
         let summ = questionsTrue + questionsFalse
         let procent = Double(questionsTrue) / Double(summ) * 100
         resultLabel.text = "Ваш результат:\n \(questionsTrue)/\(summ)\n \(Int(procent))% "
+
+        
+        localization()
+        guard let topic = topic else { return }
+        let saveProcent = "\(Int(procent))"
+        let currentDate = getCurrentDate()
+        StorageManager.shared.saveData(saveProcent, category: topic, date: currentDate)
+    }
+    
+    private func localization() {
+        switch topic {
+        case "swift": topic = "Swift"
+        case "optional": topic = "Опционалы"
+        case "theory": topic = "Теория"
+        case "uikit": topic = "UIKit"
+        case "patterns": topic = "Паттерны"
+        case "error": topic = "Обработка ошибок"
+        default:
+            return
+        }
+    }
+    
+    private func getCurrentDate() -> String {
+        let date = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateString = dateFormatter.string(from: date as Date)
+        return dateString
     }
     
     private func setupViews() {
         animationView.play()
         
         navigationItem.hidesBackButton = true
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         view.addSubview(resultLabel)
         view.addSubview(animationView)
         view.addSubview(menuButton)
     }
+    
     //MARK: - Action
     @objc private func getBackAction(_ sender: UIButton) {
         view.animateViewPress(sender)
@@ -86,6 +117,7 @@ final class ResultVC: UIViewController {
     private func navigation() {
         navigationController?.popToRootViewController(animated: true)
     }
+    
     //MARK: - Constraints
     private func setConstraints() {
         resultLabel.snp.makeConstraints { make in

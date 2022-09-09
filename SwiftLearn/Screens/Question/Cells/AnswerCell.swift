@@ -66,7 +66,7 @@ final class AnswerCell: UITableViewCell {
                 backgroundColor = .systemRed
             }
         } else {
-            backgroundColor = .systemBackground
+            backgroundColor = .white
         }
     }
     

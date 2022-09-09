@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
     //MARK: Lock Orientation
     var orientationLock = UIInterfaceOrientationMask.portrait
     
@@ -34,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
 
     }
-
-
 }
+
 

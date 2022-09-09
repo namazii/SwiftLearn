@@ -20,6 +20,7 @@
 		BC26FAAE28A5192800CF5D2F /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC26FAAD28A5192800CF5D2F /* AnswerCell.swift */; };
 		BC26FAB028A51BA500CF5D2F /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC26FAAF28A51BA500CF5D2F /* ButtonCell.swift */; };
 		BC26FAB228A522C900CF5D2F /* UIView+PinEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC26FAB128A522C900CF5D2F /* UIView+PinEdges.swift */; };
+		BC5758A428CA3799006D62AF /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5758A328CA3799006D62AF /* HistoryVC.swift */; };
 		BC68161028B10B04008DCC3C /* UIView+AnimateViewPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68160F28B10B04008DCC3C /* UIView+AnimateViewPress.swift */; };
 		BC68161328B22B76008DCC3C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68161228B22B76008DCC3C /* MenuVC.swift */; };
 		BC68161628B25650008DCC3C /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68161528B25650008DCC3C /* CategoriesVC.swift */; };
@@ -30,6 +31,8 @@
 		BCC4BAF228C7A0300078A608 /* UIColor + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4BAF128C7A0300078A608 /* UIColor + extension.swift */; };
 		BCC4BAF428C7A16F0078A608 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4BAF328C7A16F0078A608 /* Resources.swift */; };
 		BCC6E97628C8DB9200EDF4C2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BCC6E97528C8DB9200EDF4C2 /* Lottie */; };
+		BCC98A6728CB49C7001CFE90 /* SwiftLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCC98A6528CB49C7001CFE90 /* SwiftLearn.xcdatamodeld */; };
+		BCC98A6928CB4B9D001CFE90 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC98A6828CB4B9D001CFE90 /* StorageManager.swift */; };
 		BCCE4D6C28BF67FC00397979 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCCE4D6B28BF67FC00397979 /* GoogleService-Info.plist */; };
 		BCCE4D6F28BF68F100397979 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BCCE4D6E28BF68F100397979 /* FirebaseAnalytics */; };
 		BCCE4D7128BF68F100397979 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCCE4D7028BF68F100397979 /* FirebaseAnalyticsSwift */; };
@@ -42,6 +45,7 @@
 		BCCE4D7F28BF68F100397979 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = BCCE4D7E28BF68F100397979 /* FirebaseRemoteConfig */; };
 		BCCE4D8128BF68F100397979 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCCE4D8028BF68F100397979 /* FirebaseRemoteConfigSwift */; };
 		BCCE4D8328BF68F100397979 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BCCE4D8228BF68F100397979 /* FirebaseStorage */; };
+		BCECF33528CB7C69004912E9 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECF33428CB7C69004912E9 /* HistoryCell.swift */; };
 		BCF8D06B28C61F5A00555544 /* LogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8D06A28C61F5900555544 /* LogVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +64,7 @@
 		BC26FAAD28A5192800CF5D2F /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		BC26FAAF28A51BA500CF5D2F /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		BC26FAB128A522C900CF5D2F /* UIView+PinEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PinEdges.swift"; sourceTree = "<group>"; };
+		BC5758A328CA3799006D62AF /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		BC68160F28B10B04008DCC3C /* UIView+AnimateViewPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AnimateViewPress.swift"; sourceTree = "<group>"; };
 		BC68161228B22B76008DCC3C /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		BC68161528B25650008DCC3C /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
@@ -69,7 +74,10 @@
 		BCBCCB3A28C6514C0078968B /* UIViewController + AlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + AlertService.swift"; sourceTree = "<group>"; };
 		BCC4BAF128C7A0300078A608 /* UIColor + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + extension.swift"; sourceTree = "<group>"; };
 		BCC4BAF328C7A16F0078A608 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		BCC98A6628CB49C7001CFE90 /* SwiftLearnData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftLearnData.xcdatamodel; sourceTree = "<group>"; };
+		BCC98A6828CB4B9D001CFE90 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		BCCE4D6B28BF67FC00397979 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BCECF33428CB7C69004912E9 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		BCF8D06A28C61F5900555544 /* LogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +114,7 @@
 				BC128D55289D688600BCDC08 /* LaunchScreen.storyboard */,
 				BC128D58289D688600BCDC08 /* Info.plist */,
 				BCC4BAF328C7A16F0078A608 /* Resources.swift */,
+				BCC98A6528CB49C7001CFE90 /* SwiftLearn.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -114,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				BC77531728AE4DA700AA5695 /* QuestionProvider.swift */,
+				BCC98A6828CB4B9D001CFE90 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,8 +180,9 @@
 		BC26FAA128A5131900CF5D2F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				BCF8D06A28C61F5900555544 /* LogVC.swift */,
+				BC5758A228CA3763006D62AF /* Log */,
 				BC68161428B22B7A008DCC3C /* Menu */,
+				BC5758A528CA379E006D62AF /* HistoryVC */,
 				BC68161728B256A2008DCC3C /* Categories */,
 				BC68161128B2270E008DCC3C /* Question */,
 				BCA7025928BDFF5F005DFC9B /* Result */,
@@ -188,6 +199,23 @@
 				BC26FAAF28A51BA500CF5D2F /* ButtonCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BC5758A228CA3763006D62AF /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				BCF8D06A28C61F5900555544 /* LogVC.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		BC5758A528CA379E006D62AF /* HistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				BC5758A328CA3799006D62AF /* HistoryVC.swift */,
+				BCECF33428CB7C69004912E9 /* HistoryCell.swift */,
+			);
+			path = HistoryVC;
 			sourceTree = "<group>";
 		};
 		BC68161128B2270E008DCC3C /* Question */ = {
@@ -325,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC128D4F289D688400BCDC08 /* QuestionVC.swift in Sources */,
+				BC5758A428CA3799006D62AF /* HistoryVC.swift in Sources */,
 				BCF8D06B28C61F5A00555544 /* LogVC.swift in Sources */,
 				BC128D61289D705400BCDC08 /* QuestionResponse.swift in Sources */,
 				BC26FAB228A522C900CF5D2F /* UIView+PinEdges.swift in Sources */,
@@ -336,13 +365,16 @@
 				BCC4BAF228C7A0300078A608 /* UIColor + extension.swift in Sources */,
 				BC8E488F28B3D2E70027BC7B /* CategoryCell.swift in Sources */,
 				BC128D4D289D688400BCDC08 /* SceneDelegate.swift in Sources */,
+				BCC98A6728CB49C7001CFE90 /* SwiftLearn.xcdatamodeld in Sources */,
 				BC26FAA628A5160000CF5D2F /* TextCell.swift in Sources */,
+				BCECF33528CB7C69004912E9 /* HistoryCell.swift in Sources */,
 				BC26FAAC28A518B700CF5D2F /* CodeCell.swift in Sources */,
 				BC26FAB028A51BA500CF5D2F /* ButtonCell.swift in Sources */,
 				BC68161628B25650008DCC3C /* CategoriesVC.swift in Sources */,
 				BC77531828AE4DA700AA5695 /* QuestionProvider.swift in Sources */,
 				BC26FAAE28A5192800CF5D2F /* AnswerCell.swift in Sources */,
 				BC68161328B22B76008DCC3C /* MenuVC.swift in Sources */,
+				BCC98A6928CB4B9D001CFE90 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +518,7 @@
 				INFOPLIST_FILE = SwiftLearn/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,6 +546,7 @@
 				INFOPLIST_FILE = SwiftLearn/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -645,6 +679,19 @@
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BCC98A6528CB49C7001CFE90 /* SwiftLearn.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BCC98A6628CB49C7001CFE90 /* SwiftLearnData.xcdatamodel */,
+			);
+			currentVersion = BCC98A6628CB49C7001CFE90 /* SwiftLearnData.xcdatamodel */;
+			path = SwiftLearn.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BC128D3F289D688400BCDC08 /* Project object */;
 }

@@ -70,8 +70,8 @@ final class CategoriesVC: UIViewController {
     
     //MARK: - Private
     private func setupViews() {
-        view.backgroundColor = .white
         view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemBackground
     }
     
     private func fetchTopics() {
