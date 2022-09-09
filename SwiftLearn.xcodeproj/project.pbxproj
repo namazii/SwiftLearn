@@ -182,7 +182,7 @@
 			children = (
 				BC5758A228CA3763006D62AF /* Log */,
 				BC68161428B22B7A008DCC3C /* Menu */,
-				BC5758A528CA379E006D62AF /* HistoryVC */,
+				BC5758A528CA379E006D62AF /* History */,
 				BC68161728B256A2008DCC3C /* Categories */,
 				BC68161128B2270E008DCC3C /* Question */,
 				BCA7025928BDFF5F005DFC9B /* Result */,
@@ -209,13 +209,13 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
-		BC5758A528CA379E006D62AF /* HistoryVC */ = {
+		BC5758A528CA379E006D62AF /* History */ = {
 			isa = PBXGroup;
 			children = (
 				BC5758A328CA3799006D62AF /* HistoryVC.swift */,
 				BCECF33428CB7C69004912E9 /* HistoryCell.swift */,
 			);
-			path = HistoryVC;
+			path = History;
 			sourceTree = "<group>";
 		};
 		BC68161128B2270E008DCC3C /* Question */ = {
