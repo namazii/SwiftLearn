@@ -76,15 +76,16 @@ final class QuestionVC: UIViewController {
     
     //MARK: - Private
     private func setupViews() {
+//        view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
         navigationItem.titleView = progressView
         
         navigationItem.hidesBackButton = true
         
-        view.backgroundColor = .white
         view.addSubview(progressView)
         
         view.addSubview(tableView)
+        tableView.backgroundColor = .systemBackground
         tableView.pinEdgesToSuperView()
     }
     private func updateAnsweredQuestionsProgress() {
@@ -255,6 +256,7 @@ extension QuestionVC: ButtonCellOutput {
             
             if currentQuestion == nil {
                 let vc = ResultVC()
+                vc.topic = topic?.text
                 vc.questionProvider = questionProvider
                 navigationController?.pushViewController(vc, animated: true)
             }

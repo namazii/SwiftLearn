@@ -53,6 +53,9 @@ final class CategoryCell: UICollectionViewCell {
         case "swift": nameLabel.text = "Swift"
         case "optional": nameLabel.text = "Опционалы"
         case "theory": nameLabel.text = "Теория"
+        case "uikit": nameLabel.text = "UIKit"
+        case "patterns": nameLabel.text = "Паттерны"
+        case "error": nameLabel.text = "Обработка ошибок"
         default:
             return
         }

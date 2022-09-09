@@ -109,7 +109,7 @@ final class LogVC: UIViewController {
     
     //MARK: - Private
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         logButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.height / 40)
         regButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.height / 40)
