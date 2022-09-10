@@ -71,9 +71,36 @@ final class MenuVC: UIViewController {
         
         setupViews()
         setupConstraints()
+        
+        let deleteUserButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteUserAction))
+        
+        navigationItem.rightBarButtonItem = deleteUserButton
     }
     
     //MARK: - Private
+    @objc private func deleteUserAction(_ sender: UIBarButtonItem) {
+        deleteAlert()
+    }
+    
+    private func deleteAlert() {
+        let alert = UIAlertController(title: "Удаление аккаунта", message: "Вы хотите удалить свой аккаунт?", preferredStyle: .actionSheet)
+        let okButton = UIAlertAction(title: "ОК", style: .destructive) { [weak self] _ in
+            guard let self = self else { return }
+            let user = Auth.auth().currentUser
+            user?.delete { error in
+              if let _ = error {
+                  self.showAlert(title: "Внимание", message: "Для безопасности войдите в акаунт повторно")
+              } else {
+                  self.showLogVC()
+              }
+            }
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(okButton)
+        alert.addAction(cancelButton)
+        present(alert, animated: true)
+    }
+    
     private func setupViews() {
         navigationItem.hidesBackButton = true
         view.backgroundColor = .systemBackground

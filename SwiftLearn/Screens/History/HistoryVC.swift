@@ -53,6 +53,7 @@ extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
         
         let result = questionResults.reversed()[indexPath.row]
         cell.configure(result)
+        cell.selectionStyle = .none
         
         return cell
     }

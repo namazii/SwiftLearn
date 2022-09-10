@@ -10,10 +10,9 @@ import SnapKit
 
 final class HistoryCell: UITableViewCell {
     
-    //MARK: - Private Properties
     static let identifier = "HistoryCell"
     
-    
+    //MARK: - Private Properties
     private let resultView: UIView = {
         let view = UIView()
         
