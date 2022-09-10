@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabaseSwift
+import SkeletonView
 
 //MARK: - Topic
 struct Topic: Hashable {
@@ -38,6 +39,7 @@ final class CategoriesVC: UIViewController {
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.isSkeletonable = true
         
         return collectionView
     }()
@@ -50,6 +52,8 @@ final class CategoriesVC: UIViewController {
         fetchData {
             self.fetchTopics()
         }
+        
+        collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .clouds), animation: nil, transition: .crossDissolve(0.25))
     }
     
     //MARK: - Requests
@@ -89,6 +93,10 @@ final class CategoriesVC: UIViewController {
             topicsSet.insert(topic)
         }
         topics = Array(topicsSet)
+        
+        collectionView.stopSkeletonAnimation()
+        view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+        
         collectionView.reloadData()
     }
     
@@ -107,7 +115,11 @@ final class CategoriesVC: UIViewController {
 }
 
 //MARK: - UICollectionViewExtension
-extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CategoriesVC: UICollectionViewDelegate, SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return CategoryCell.reuseID
+    }
+    
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return topics.count
@@ -127,7 +139,6 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource {
         chooseCategoryAction(indexPath)
     }
 }
-
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension CategoriesVC: UICollectionViewDelegateFlowLayout {

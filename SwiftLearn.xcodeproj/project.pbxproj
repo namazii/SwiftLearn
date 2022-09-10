@@ -26,6 +26,7 @@
 		BC68161628B25650008DCC3C /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68161528B25650008DCC3C /* CategoriesVC.swift */; };
 		BC77531828AE4DA700AA5695 /* QuestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77531728AE4DA700AA5695 /* QuestionProvider.swift */; };
 		BC8E488F28B3D2E70027BC7B /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E488E28B3D2E70027BC7B /* CategoryCell.swift */; };
+		BCA1010028CC875F003CD6A6 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = BCA100FF28CC875F003CD6A6 /* SkeletonView */; };
 		BCA7025828BDFF58005DFC9B /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA7025728BDFF58005DFC9B /* ResultVC.swift */; };
 		BCBCCB3B28C6514C0078968B /* UIViewController + AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCB3A28C6514C0078968B /* UIViewController + AlertService.swift */; };
 		BCC4BAF228C7A0300078A608 /* UIColor + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4BAF128C7A0300078A608 /* UIColor + extension.swift */; };
@@ -94,6 +95,7 @@
 				BCCE4D7528BF68F100397979 /* FirebaseCrashlytics in Frameworks */,
 				BCCE4D8328BF68F100397979 /* FirebaseStorage in Frameworks */,
 				BCCE4D8128BF68F100397979 /* FirebaseRemoteConfigSwift in Frameworks */,
+				BCA1010028CC875F003CD6A6 /* SkeletonView in Frameworks */,
 				BCCE4D7B28BF68F100397979 /* FirebaseFirestore in Frameworks */,
 				BC26FAAA28A5181900CF5D2F /* SnapKit in Frameworks */,
 				BCCE4D7328BF68F100397979 /* FirebaseAuth in Frameworks */,
@@ -290,6 +292,7 @@
 				BCCE4D8028BF68F100397979 /* FirebaseRemoteConfigSwift */,
 				BCCE4D8228BF68F100397979 /* FirebaseStorage */,
 				BCC6E97528C8DB9200EDF4C2 /* Lottie */,
+				BCA100FF28CC875F003CD6A6 /* SkeletonView */,
 			);
 			productName = SwiftLearn;
 			productReference = BC128D47289D688400BCDC08 /* SwiftLearn.app */;
@@ -323,6 +326,7 @@
 				BC26FAA828A5181900CF5D2F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BCCE4D6D28BF68F100397979 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				BCC6E97428C8DB9200EDF4C2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				BCA100FE28CC875F003CD6A6 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = BC128D48289D688400BCDC08 /* Products */;
 			projectDirPath = "";
@@ -442,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -496,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -521,6 +525,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,6 +554,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -594,6 +600,14 @@
 				kind = branch;
 			};
 		};
+		BCA100FE28CC875F003CD6A6 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		BCC6E97428C8DB9200EDF4C2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -617,6 +631,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC26FAA828A5181900CF5D2F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BCA100FF28CC875F003CD6A6 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCA100FE28CC875F003CD6A6 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		BCC6E97528C8DB9200EDF4C2 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -77,6 +77,7 @@ final class HistoryCell: UITableViewCell {
         contentView.addSubview(resultView)
         resultView.addSubview(resultLabel)
         contentView.addSubview(infoLabel)
+        infoLabel.font = UIFont(name: "Futura", size: contentView.frame.height * 0.4)
     }
     
     private func setupConstraints() {
@@ -90,7 +91,7 @@ final class HistoryCell: UITableViewCell {
         }
         
         infoLabel.snp.makeConstraints { make in
-            make.left.equalTo(resultView.snp.left).inset(20)
+            make.left.equalTo(resultView.snp.right).offset(20)
             make.right.equalTo(contentView.snp.right).inset(20)
             make.top.bottom.equalTo(contentView).inset(10)
         }

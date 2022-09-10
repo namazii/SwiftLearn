@@ -9,10 +9,10 @@ import CoreData
 
 // MARK: - Core Data stack
 final class StorageManager {
-   
+    
     //MARK: - Properties
     static let shared = StorageManager()
-
+    
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "SwiftLearn")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -22,7 +22,7 @@ final class StorageManager {
         })
         return container
     }()
-
+    
     
     
     func saveData(_ result: String, category: String, date: String ) {
@@ -50,31 +50,6 @@ final class StorageManager {
         }
         return questionResults ?? []
     }
-     
-
-    // MARK: - Core Data Saving support
-//    func saveContext () {
-//
-//        let context = persistentContainer.viewContext
-//
-//        if context.hasChanges {
-//
-//            do {
-//
-//                try context.save()
-//
-//            } catch {
-//
-//                let nserror = error as NSError
-//
-//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//
-//            }
-//
-//        }
-//
-//    }
-    
 }
 
 

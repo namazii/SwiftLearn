@@ -76,7 +76,6 @@ final class QuestionVC: UIViewController {
     
     //MARK: - Private
     private func setupViews() {
-//        view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
         navigationItem.titleView = progressView
         
