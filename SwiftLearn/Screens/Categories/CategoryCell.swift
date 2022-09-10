@@ -17,6 +17,9 @@ final class CategoryCell: UICollectionViewCell {
     private let categoryImage: UIImageView = {
         let image = UIImageView()
         
+        image.contentMode = .scaleAspectFit
+        
+        
         return image
     }()
     
@@ -29,6 +32,16 @@ final class CategoryCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 25)
         
         return label
+    }()
+    
+    private let stackViewMain: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.spacing = 8
+        stackView.distribution = .fillProportionally
+        stackView.axis = .vertical
+        
+        return stackView
     }()
     
     //MARK: - LifeCycle
@@ -73,18 +86,22 @@ final class CategoryCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(categoryImage)
+        contentView.addSubview(stackViewMain)
+        stackViewMain.addArrangedSubview(nameLabel)
+        stackViewMain.addArrangedSubview(categoryImage)
     }
     
     private func setupConstraints() {
+        stackViewMain.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(contentView)
+        }
+        
         nameLabel.snp.makeConstraints { make in
-            make.top.left.right.equalTo(contentView).inset(0)
-            make.bottom.equalTo(categoryImage.snp.top).inset(-5)
+            make.height.equalTo(contentView).multipliedBy(0.2)
         }
         
         categoryImage.snp.makeConstraints { make in
-            make.left.right.bottom.equalTo(contentView).inset(20)
+            make.width.equalTo(categoryImage.snp.height)
         }
     }
 }

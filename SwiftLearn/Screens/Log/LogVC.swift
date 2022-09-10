@@ -92,7 +92,6 @@ final class LogVC: UIViewController {
         setupViews()
         setConstraints()
         addTap()
-        
         Auth.auth().addStateDidChangeListener { [weak self] auth, user in
             if user != nil {
                 self?.showMenuVC()
