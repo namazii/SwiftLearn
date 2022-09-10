@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 
 final class CategoryCell: UICollectionViewCell {
     
@@ -36,6 +37,7 @@ final class CategoryCell: UICollectionViewCell {
         
         setupViews()
         setupConstraints()
+        setSkeleton()
     }
     
     required init?(coder: NSCoder) {
@@ -63,6 +65,13 @@ final class CategoryCell: UICollectionViewCell {
     }
     
     //MARK: - PrivateMethods
+    private func setSkeleton() {
+        self.isSkeletonable = true
+        contentView.isSkeletonable = true
+        nameLabel.isSkeletonable = true
+        categoryImage.isSkeletonable = true
+    }
+    
     private func setupViews() {
         contentView.addSubview(nameLabel)
         contentView.addSubview(categoryImage)
