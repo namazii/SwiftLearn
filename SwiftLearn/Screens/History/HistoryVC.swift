@@ -10,7 +10,7 @@ import UIKit
 final class HistoryVC: UIViewController {
     
     private var questionResults: [PollResult] = []
-
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.estimatedRowHeight = 60
@@ -57,6 +57,4 @@ extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

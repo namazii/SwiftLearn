@@ -23,8 +23,6 @@ final class StorageManager {
         return container
     }()
     
-    
-    
     func saveData(_ result: String, category: String, date: String ) {
         let pullResult = PollResult(context: persistentContainer.viewContext)
         pullResult.result = result

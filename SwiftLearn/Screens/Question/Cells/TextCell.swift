@@ -38,7 +38,6 @@ final class TextCell: UITableViewCell {
     
     func configure(_ text: String) {
         questionTextLabel.text = text
-//        contentView.layoutIfNeeded()
     }
     
     private func setupViews() {

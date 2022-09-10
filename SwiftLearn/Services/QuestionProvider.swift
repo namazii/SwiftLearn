@@ -7,14 +7,13 @@
 
 import Foundation
 
-//Бизнес-логика - выдавать вопросы
 final class QuestionProvider {
     
     static let shared = QuestionProvider()
     
-    var questionsResponse: [Question] = []//прогрузка данных с экрана категорий
-    private var questions: [Question] = [] //отфильтрованный по категории массив, из которого удаляются элементы
-    private var allQuestions: [Question] = [] //отфильтрованный по категории массив
+    var questionsResponse: [Question] = []
+    private var questions: [Question] = []
+    private var allQuestions: [Question] = []
     
     private var currentQuestion: Question?
     

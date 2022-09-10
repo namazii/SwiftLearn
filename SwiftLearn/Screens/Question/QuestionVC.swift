@@ -226,13 +226,9 @@ extension QuestionVC: ButtonCellOutput {
         switch state {
             
         case .checkAnswer:
-            
-            //Логика раскладов
-            
             pressedButton = true
             
-            guard let answered = currentQuestion?.answers[indexRow.row] else { return } // дает ответ
-            
+            guard let answered = currentQuestion?.answers[indexRow.row] else { return }
             guard let currentQuestion = currentQuestion else { return }
             if answered.status == true {
                 questionProvider.questionTrue.append(currentQuestion)
@@ -246,7 +242,6 @@ extension QuestionVC: ButtonCellOutput {
             
         case .nextAnswer:
             updateAnsweredQuestionsProgress()
-            //Логика перехода на следующий экран
             pressedButton = false
             currentQuestion = questionProvider.fetchNextQuestion()
             tableView.reloadData()

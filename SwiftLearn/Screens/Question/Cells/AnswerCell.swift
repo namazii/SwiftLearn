@@ -53,9 +53,7 @@ final class AnswerCell: UITableViewCell {
     }
     
     //MARK: - Public
-    //Text - текст ответа, statuc - внутренний статус то что вопрос правильных/неправильно, bool - то что нажата кнопка проверить/следующей
     func configure(_ text: String, _ status: Bool, bool: Bool) {
-        
         answerLabel.text = text
         answerStatus = status
         
@@ -85,7 +83,6 @@ final class AnswerCell: UITableViewCell {
             make.top.bottom.equalTo(contentView).inset(20)
             make.left.equalTo(checkMark.snp.right).inset(-20)
             make.right.lessThanOrEqualTo(contentView)
-            
         }
     }
 }

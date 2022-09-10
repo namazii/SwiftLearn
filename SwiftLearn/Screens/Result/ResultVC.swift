@@ -62,7 +62,7 @@ final class ResultVC: UIViewController {
         let summ = questionsTrue + questionsFalse
         let procent = Double(questionsTrue) / Double(summ) * 100
         resultLabel.text = "Ваш результат:\n \(questionsTrue)/\(summ)\n \(Int(procent))% "
-
+        
         
         localization()
         guard let topic = topic else { return }

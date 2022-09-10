@@ -88,11 +88,11 @@ final class MenuVC: UIViewController {
             guard let self = self else { return }
             let user = Auth.auth().currentUser
             user?.delete { error in
-              if let _ = error {
-                  self.showAlert(title: "Внимание", message: "Для безопасности войдите в акаунт повторно")
-              } else {
-                  self.showLogVC()
-              }
+                if let _ = error {
+                    self.showAlert(title: "Внимание", message: "Для безопасности войдите в акаунт повторно")
+                } else {
+                    self.showLogVC()
+                }
             }
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
