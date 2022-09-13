@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="[Project Logo Url](https://i.ibb.co/Gp9d6pj/appstore.jpg)" width="726">
+      <img src="https://i.ibb.co/Gp9d6pj/appstore.jpg" width="726">
 </p>
 
 <p align="center">
