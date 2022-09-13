@@ -13,10 +13,6 @@
 
 Quizi application for SWIFT. This application uses Firebase to register and store the database of questions, coredata to store the history of the uiz, and skeletonView to animate the loading. For question selections use tableView and collectionView
 
-## Documentation
-
-Documentation Here
-
 ## Distribute
 
 - [AppStore](https://apps.apple.com/app/id1644527146)
