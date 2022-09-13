@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="https://i.ibb.co/Gp9d6pj/appstore.jpg" width="726" height="400">
+      <img src="https://i.ibb.co/Gp9d6pj/appstore.jpg" width="500" height="400">
 </p>
 
 <p align="center">
