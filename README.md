@@ -1,5 +1,5 @@
 <p align="center">
-      ![swifticon](https://user-images.githubusercontent.com/97259944/189864384-1f71ad82-70fb-472b-a89c-a98ae92b1995.jpg)
+      <img src="[Project Logo Url](https://i.ibb.co/Gp9d6pj/appstore.jpg)" width="726">
 </p>
 
 <p align="center">
